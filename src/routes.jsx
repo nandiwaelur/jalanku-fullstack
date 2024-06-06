@@ -3,7 +3,7 @@ import { Home, Profile, SignIn, SignUp } from "@/pages";
 export const routes = [
   {
     name: "",
-    path: "/home",
+    path: "/",
     element: <Home />,
   },
   {

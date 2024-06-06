@@ -10,7 +10,7 @@ export function Footer({ title, description, socials, menus, copyright }) {
         <div className="flex flex-wrap pt-6 text-center lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
             <Typography variant="h4" className="mb-4" color="blue-gray">
-              {title}
+              JALANKU.
             </Typography>
             <Typography className="font-normal text-blue-gray-500 lg:w-2/5">
               {description}

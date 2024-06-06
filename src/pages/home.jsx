@@ -40,7 +40,7 @@ export function Home() {
           <div className="grid px-24">
               <Input
               placeholder="name@mail.com"
-              className=" !border-t-white focus:!border-t-gray-500 bg-white flex py-7 rounded-[24px]"
+              className=" !border-t-white focus:!border-t-gray-500 bg-white flex py-7 rounded-full"
               labelProps={{
                 className: "before:content-none after:content-none ",
               }}   

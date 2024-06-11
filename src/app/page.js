@@ -1,26 +1,15 @@
 "use client";
 import React from "react";
-import Navbar from "../components/landing_page/Navbar";
+import Navbar from "../components/landing_page/NavbarCustom";
 import Footer from "../components/landing_page/Footer";
-import {
-  Card,
-  CardBody,
-  Avatar,
-  CardHeader,
-  Typography,
-  Button,
-  IconButton,
-  Input,
-  Textarea,
-  Checkbox,
-} from "@material-tailwind/react";
-import SearchBar from "@/components/landing_page/SearchBar";
+import SearchBar from "../components/landing_page/SearchBar";
+import { Card, CardBody, Avatar, Typography } from "@material-tailwind/react";
 export default function page() {
   return (
     <>
-        <Navbar />
+      <Navbar />
       <div className="relative flex h-screen content-center items-center justify-center  pb-32 -mb-32">
-        <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1469474968028-56623f02e42e')] bg-cover bg-top" />
+        <div className="absolute top-0 h-full w-full bg-[url('/img/bg-1.png')] bg-cover bg-top" />
         <div className="absolute top-0 h-96 w-full bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center mb-8">
@@ -40,7 +29,7 @@ export default function page() {
             </div>
           </div>
           <div className="grid md:px-24">
-            <SearchBar/>
+            <SearchBar />
             <Typography
               variant="h6"
               color="white"
@@ -51,14 +40,12 @@ export default function page() {
           </div>
         </div>
       </div>
-      <section className="-mt-32 bg-white  pb-20 pt-4">
-        <div className="">
-          <div className="">
+      <section className=" bg-white  pb-20 pt-0">
             <Card className="rounded-3xl shadow-lg shadow-gray-500/0 py-11">
               <CardBody className="px-8 text-center">
                 <Typography variant="h2" className="mb-2" color="black">
                   Jelajahi Destinasi{" "}
-                  <span class="text-[#1EB47D]">Impianmu</span>
+                  <span className="text-[#1EB47D]">Impianmu</span>
                 </Typography>
                 <Typography
                   variant="h3"
@@ -68,7 +55,6 @@ export default function page() {
                 </Typography>
               </CardBody>
             </Card>
-          </div>
           <div className="container mx-auto px-28">
             <div className="mt-12 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3">
               <div className="">
@@ -78,9 +64,7 @@ export default function page() {
                   className="shadow-lg shadow-gray-500/25"
                 >
                   <Avatar
-                    src={
-                      "https://images.unsplash.com/photo-1527965408463-82ae0731825c"
-                    }
+                    src={"/img/bg-1.png"}
                     alt="Y"
                     size="xxl"
                     variant="rounded"
@@ -108,9 +92,7 @@ export default function page() {
                   className="shadow-lg shadow-gray-500/25"
                 >
                   <Avatar
-                    src={
-                      "https://images.unsplash.com/photo-1527965408463-82ae0731825c"
-                    }
+                    src={"/img/bg-1.png"}
                     alt="Y"
                     size="xxl"
                     variant="rounded"
@@ -138,9 +120,7 @@ export default function page() {
                   className="shadow-lg shadow-gray-500/25"
                 >
                   <Avatar
-                    src={
-                      "https://images.unsplash.com/photo-1527965408463-82ae0731825c"
-                    }
+                    src={"/img/bg-1.png"}
                     alt="Y"
                     size="xxl"
                     variant="rounded"
@@ -157,13 +137,20 @@ export default function page() {
                     variant="paragraph"
                     className="font-light text-sm text-blue-gray-700 ml-3  leading-4 tracking-wide"
                   >
-                    Berwisata di Bandung
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Nesciunt error dolorem voluptate, pariatur quas obcaecati id
+                    molestias architecto at alias quidem nisi commodi.
+                    Distinctio hic soluta possimus, perspiciatis ratione nisi!
+                    Atque quas itaque, vel iste cum cupiditate at dolor dolores?
+                    Dicta similique molestiae ipsum commodi maiores vitae fugiat
+                    repudiandae ad alias explicabo officiis, perspiciatis esse
+                    asperiores! Praesentium iure tempore dicta.
                   </Typography>
+                  <h1 className="mt-2 ml-3">Hello</h1>
                 </Card>
               </div>
             </div>
           </div>
-        </div>
       </section>
       <div className="bg-[#1EB47D]">
         <Footer />

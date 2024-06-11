@@ -11,13 +11,16 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 function NavList() {
   return (
     <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+      <a href="/login">
       <Button
         size="lg"
+
         className="flex items-center gap-3 bg-black"
       >
         <img src="https://docs.material-tailwind.com/icons/google.svg" alt="metamask" className="h-6 w-6" />
         <h1 className="text-white">Continue with Google</h1>
       </Button>
+      </a>
       <Typography
         as="li"
         variant="h6"
@@ -31,7 +34,7 @@ function NavList() {
   );
 }
  
-export function NavbarSimple() {
+export function NavbarCustom() {
   const [openNav, setOpenNav] = React.useState(false);
  
   const handleWindowResize = () =>
@@ -78,4 +81,4 @@ export function NavbarSimple() {
     </Navbar>
   );
 }
-export default NavbarSimple;
+export default NavbarCustom;

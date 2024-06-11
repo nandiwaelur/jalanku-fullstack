@@ -1,9 +1,6 @@
-import PropTypes from "prop-types";
-import { Typography, IconButton } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 
-const year = new Date().getFullYear();
-
-export function Footer({ title, description, socials, menus, copyright }) {
+export function Footer() {
   return (
     <footer className="relative px-4 pt-8 pb-6 bg-[#]">
       <div className="container mx-auto">

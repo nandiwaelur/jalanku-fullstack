@@ -1,5 +1,5 @@
-import { Typography } from "@material-tailwind/react";
 
+import { Typography } from "@material-tailwind/react";
 export function Footer() {
   return (
     <footer className="relative px-4 pt-8 pb-6 bg-[#]">

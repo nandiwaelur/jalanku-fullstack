@@ -1,9 +1,12 @@
-import React from 'react'
+"use client"
+import Navbar from '../../components/landing_page/NavbarCustom';
 
-export default function page() {
+export default function Profile() {
   return (
     <>
-    <h1>About!</h1>
+        <Navbar/>
+        <h1>About!</h1>
     </>
+
   )
 }

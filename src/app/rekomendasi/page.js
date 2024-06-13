@@ -8,7 +8,7 @@ export default function rekomendasi() {
       <div className="">
         <Navbar />
       </div>
-      <div className="grid lg:grid-cols-2 grid-row-2  items-center min-h-[80vh]  bg-gradient-to-r from-[#1EB47D] to-[#34E0A1]">
+      <div className="grid lg:grid-cols-2 grid-row-2  items-center min-h-[80vh]  bg-[url('/img/wave.svg')] bg-cover">
         <RekomendasiWisata/>
       </div>
       <div className="bg-[#1EB47D]">

@@ -37,14 +37,14 @@ function RekomendasiWisata() {
               </Select>
             </div>
             <div className="mt-5 flex justify-end">
-            <button type="button" className="bg-[#1EB47D] text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 ">Rencanakan</button>
+            <button type="button" className="bg-[#1EB47D] text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 " >Rencanakan</button>
             </div>
           </div>
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="bg-white lg:w-[1000vh] lg:h-[75vh] mx-5 p-10 mt-5 lg:mt-0  rounded-2xl overflow-auto">
-          <div className="mx-5 p-10">
+        <div className="lg:max-w-[100vh] lg:max-h-[75vh] lg:mt-0 overflow-auto">
+          <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#0D8292] rounded-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quam
             perspiciatis aut accusamus omnis similique officiis possimus, ea
             distinctio voluptate illo, excepturi dolorem ab natus expedita
@@ -53,7 +53,7 @@ function RekomendasiWisata() {
             animi voluptatem quisquam doloribus commodi nesciunt, ea quibusdam
             dolores praesentium aliquam hic rerum est enim eum. Dolorum.
           </div>
-          <div className="mx-5 p-10 ">
+          <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#0D8292] rounded-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quam
             perspiciatis aut accusamus omnis similique officiis possimus, ea
             distinctio voluptate illo, excepturi dolorem ab natus expedita
@@ -62,7 +62,7 @@ function RekomendasiWisata() {
             animi voluptatem quisquam doloribus commodi nesciunt, ea quibusdam
             dolores praesentium aliquam hic rerum est enim eum. Dolorum.
           </div>
-          <div className="mx-5 p-10 ">
+          <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#0D8292] rounded-2xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quam
             perspiciatis aut accusamus omnis similique officiis possimus, ea
             distinctio voluptate illo, excepturi dolorem ab natus expedita
@@ -71,6 +71,25 @@ function RekomendasiWisata() {
             animi voluptatem quisquam doloribus commodi nesciunt, ea quibusdam
             dolores praesentium aliquam hic rerum est enim eum. Dolorum.
           </div>
+          <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#0D8292] rounded-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quam
+            perspiciatis aut accusamus omnis similique officiis possimus, ea
+            distinctio voluptate illo, excepturi dolorem ab natus expedita
+            reiciendis? Mollitia, molestias laudantium? Porro deserunt aut
+            obcaecati tenetur minus similique ab beatae neque, vitae odit id
+            animi voluptatem quisquam doloribus commodi nesciunt, ea quibusdam
+            dolores praesentium aliquam hic rerum est enim eum. Dolorum.
+          </div>
+          <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#0D8292] rounded-2xl">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quam
+            perspiciatis aut accusamus omnis similique officiis possimus, ea
+            distinctio voluptate illo, excepturi dolorem ab natus expedita
+            reiciendis? Mollitia, molestias laudantium? Porro deserunt aut
+            obcaecati tenetur minus similique ab beatae neque, vitae odit id
+            animi voluptatem quisquam doloribus commodi nesciunt, ea quibusdam
+            dolores praesentium aliquam hic rerum est enim eum. Dolorum.
+          </div>
+
         </div>
       </div>
     </>

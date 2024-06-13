@@ -1,12 +1,15 @@
-"use client"
-import Navbar from '../../components/landing_page/NavbarCustom';
-
+"use client";
+import Navbar from "../../components/landing_page/NavbarCustom";
+import Footer from "../../components/landing_page/Footer";
 export default function Profile() {
   return (
     <>
-        <Navbar/>
-        <h1>About!</h1>
+      <div className="bg-[url('/img/wave.svg')] bg-cover min-h-screen">
+        <Navbar />
+      </div>
+      <div className="bg-[#1EB47D]">
+        <Footer />
+      </div>
     </>
-
-  )
+  );
 }

@@ -8,6 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <link rel="icon" href="/img/logo_jalanku.svg" sizes="any" />
       <body>{children}</body>
       <GoogleAnalytics gaId="G-WXG3TWTM12" />
     </html>

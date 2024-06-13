@@ -21,7 +21,7 @@ function SearchBar() {
           </svg>
           <input
             type="text"
-            className="ml-5 bg-transparent flex border-none outline-none  text-[20px] text-[#cac7ff]"
+            className="ml-5 bg-transparent flex border-none outline-none text-[#cac7ff]"
             placeholder="Mau liburan kemana minggu ini?"
           />
           <button

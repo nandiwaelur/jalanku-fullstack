@@ -1,26 +1,27 @@
-import { useState } from "react";
 import axios from "axios";
-
+import { useState,useEffect } from "react";
 const baseURL = "https://flask-ml-pf6kxjxcyq-et.a.run.app/recommend";
-
 function RekomendasiWisata() {
   const [rekomendasi, setRekomendasi] = useState("");
-  const [dataRekomendasi, setDataRekomendasi] = useState([]);
-  console.log(rekomendasi);
+  const [dataRekomendasi,setDataRekomendasi] = useState([]);
   const kirimRekomendasi = async (e) => {
     e.preventDefault();
 
-    const data = { destination_name: rekomendasi };
+    const formData = new FormData();
 
-    try {
-      const response = await axios.post(baseURL, data);
+    formData.append("destination_name", rekomendasi);
+    formData.append("_method", "POST");
+
+    await axios
+    .post(baseURL, {
+      destination_name: rekomendasi,
+    })
+    .then((response) => {
       setDataRekomendasi(response.data);
-      console.log(response.data); 
-    } catch (error) {
-      console.error("Error sending recommendation:", error);
-    }
+      console.log(setDataRekomendasi)
+    });
   };
-
+  
   return (
     <>
       <div className="flex justify-center">
@@ -29,7 +30,7 @@ function RekomendasiWisata() {
             <h1 className="text-center">Destinasi impianmu</h1>
             <div className="mt-5">
               <div className="mb-5">
-                <form method="post" onSubmit={kirimRekomendasi}>
+                <form method="post" onSubmit={kirimRekomendasi} >
                   <input
                     type="text"
                     id="large-input"
@@ -54,20 +55,9 @@ function RekomendasiWisata() {
       <div className="flex justify-center">
         <div className="lg:max-w-[100vh] lg:max-h-[75vh] lg:mt-0 overflow-auto">
           <div className="lg:w-[75vh] lg:h-[20vh] m-5 p-10 mb-5 mt-5 bg-[#6aff4c] rounded-2xl">
-            <div>
-              {Object.keys(dataRekomendasi).map((key, index) => {
-                const recommendation = dataRekomendasi[key];
-                return (
-                  <div key={index}>
-                    <h2>{recommendation.destination_name}</h2>
-                    <p>Kategori: {recommendation.category}</p>
-                    <p>Deskripsi: {recommendation.description}</p>
-                    <p>Harga: {recommendation.price}</p>
-                    <p>Rating: {recommendation.rating}</p>
-                  </div>
-                );
-              })}
-            </div>
+            {/* {dataRekomendasi.map((rekomendasi)=>{
+              <p>{rekomendasi.category}</p>
+            })} */}
           </div>
         </div>
       </div>

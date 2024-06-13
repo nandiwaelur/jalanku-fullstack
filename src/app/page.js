@@ -15,9 +15,9 @@ export default function page() {
           <div className="flex flex-wrap items-center mb-8">
             <Hero/>
           </div>
-          <div className="grid md:px-24">
+          {/* <div className="grid md:px-24">
             <SearchBar />
-          </div>
+          </div> */}
         </div>
       </div>
       <section className=" bg-white  pb-20 pt-0">

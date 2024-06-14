@@ -58,7 +58,7 @@ function RekomendasiWisata() {
               {Object.keys(dataRekomendasi).map((key, index) => {
                 const recommendation = dataRekomendasi[key];
                 return (
-                  <div key={index}>
+                  <div key={index} className="overflow-auto">
                     <h2>{recommendation.destination_name}</h2>
                     <p>Kategori: {recommendation.category}</p>
                     <p>Deskripsi: {recommendation.description}</p>

@@ -20,7 +20,7 @@ function NavList() {
           Profil
         </a>
       </Typography> */}
-      <Typography
+      {/* <Typography
         as="li"
         variant="h6"
         className="p-1 font-bold"
@@ -28,7 +28,7 @@ function NavList() {
         <a href="/rekomendasi" className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]">
           Rekomendasi
         </a>
-      </Typography>
+      </Typography> */}
       <Typography
         as="li"
         variant="h6"

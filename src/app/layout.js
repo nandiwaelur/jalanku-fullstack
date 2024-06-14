@@ -2,7 +2,7 @@ import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google';
 export const metadata = {
   title: "Jalanku",
-  description: "Jalanku keren",
+  description: "Ditenagai oleh kecerdasan buatan yang dibuat oleh orang dengan kecerdasan asli",
 };
 
 export default function RootLayout({ children }) {

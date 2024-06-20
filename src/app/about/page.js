@@ -76,9 +76,7 @@ export default function Profile() {
           </Card>
         </div>
       </div>
-      <div className="bg-[#1EB47D]">
         <Footer />
-      </div>
     </>
   );
 }

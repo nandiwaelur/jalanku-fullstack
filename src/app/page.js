@@ -9,9 +9,7 @@ export default function page() {
     <Navbar />
     </div>
     <Destination/>
-      <div className="bg-[#1EB47D]">
         <Footer />
-      </div>
     </>
   );
 }

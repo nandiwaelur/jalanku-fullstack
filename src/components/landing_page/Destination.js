@@ -6,42 +6,57 @@ import {
   Dialog,
   DialogHeader,
   DialogFooter,
+  CardHeader,
+  CardFooter,
+  Input,
+  Checkbox,
 } from "@material-tailwind/react";
-import { useState } from "react";
 import axios from "axios";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { useState } from "react";
 function Destination() {
+  // dialog when searchbar is empty
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
+  // dialog when user is not log-in
+  const [openLogindialog, setopenLogindialog] = useState(false);
+  const loginDialog = () => setopenLogindialog((cur) => !cur);
+  // usestate for rekomendasi data
   const [rekomendasi, setRekomendasi] = useState(null);
   const [dataRekomendasi, setDataRekomendasi] = useState([]);
+  // get session
+  const { data: session } = useSession();
   const kirimRekomendasi = async (e) => {
     e.preventDefault();
-    if (rekomendasi === null) {
+    if (!rekomendasi) {
       handleOpen();
+    } else if (!session) {
+      loginDialog();
     } else {
       const data = { destination_name: rekomendasi };
-      console.log(data);
       try {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
           data
         );
         setDataRekomendasi(response.data);
       } catch (error) {
-        console.error("cant send recommendation:", error);
+        console.error("can't send recommendation:", error);
       }
     }
   };
   return (
     <>
       <div className="relative flex h-[80vh] content-center items-center justify-center pb-32 -mb-32">
-        <Dialog open={open} handler={handleOpen}>
-          <DialogHeader >Silahkan isi tempat tujuan anda</DialogHeader>
-          <DialogFooter>
-            <Button className="bg-[#1EB47D]" onClick={handleOpen}>
-              Oke
-            </Button>
-          </DialogFooter>
+        <Dialog open={open} handler={handleOpen}  className="bg-transparent shadow-none">
+          <Card className="mx-auto w-full max-w-[24rem]">
+            <CardBody className="flex flex-row gap-4 w-full h-full">
+              <h1>Silahkan isi tujuan wisata anda</h1>
+              <Button className="bg-[#1EB47D] " onClick={handleOpen}>
+                Oke
+              </Button>
+            </CardBody>
+          </Card>
         </Dialog>
         <div className="absolute top-0 h-full w-full bg-[url('/img/bg-1.png')] bg-cover bg-top" />
         <div className="absolute top-0 h-96 w-full bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center" />
@@ -135,15 +150,36 @@ function Destination() {
                   <p>Harga: {recommendation.price}</p>
                   <p>Rating: {recommendation.rating}</p>
                   <div className="">
-                  <p>Deskripsi: {recommendation.description}</p>
+                    <p>Deskripsi: {recommendation.description}</p>
                   </div>
-                  <img src={recommendation.image}  />
+                  <img src={recommendation.image} />
                 </div>
               );
             })}
           </div>
         </div>
       </section>
+      <Dialog
+        size="xs"
+        open={openLogindialog}
+        handler={loginDialog}
+        className="bg-transparent shadow-none"
+      >
+        <Card className="mx-auto w-full max-w-[17rem]">
+          <CardBody>
+          <a href="/api/auth/signin" >
+              <Button size="lg" className="flex items-center gap-3 bg-black">
+                <img
+                  src="https://docs.material-tailwind.com/icons/google.svg"
+                  alt="metamask"
+                  className="h-6 w-6"
+                />
+                <h1 className="text-white">Continue with Google</h1>
+              </Button>
+            </a>
+          </CardBody>
+        </Card>
+      </Dialog>
     </>
   );
 }

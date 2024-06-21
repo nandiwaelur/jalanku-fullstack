@@ -12,7 +12,8 @@ import {
 } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 function NavList() {
   const { data: session } = useSession();
   return (
@@ -37,22 +38,21 @@ function NavList() {
                     </Typography>
                 </MenuItem>
                 </a>
-                <a href="/api/auth/signout" className="outline-none">
-                  <MenuItem className="flex items-center gap-5 ">
+                  <MenuItem className="flex items-center gap-5 " onClick={()=> signOut("google")}>
                     <Typography variant="small" className="font-medium">
                       Sign Out
                     </Typography>
                   </MenuItem>
-                </a>
               </MenuList>
             </Menu>
-            <h1 className="font-bold">{session.user.name} </h1>
+            <Link href={"/profile"}>
+            <h1 className="font-bold cursor-pointer">{session.user.name} </h1>
+            </Link>
           </>
         )}
         {!session && (
           <>
-            <a href="/api/auth/signin">
-              <Button size="lg" className="flex items-center gap-3 bg-black">
+              <Button size="lg" className="flex items-center gap-3 bg-black" onClick={()=> signIn("google")}>
                 <img
                   src="https://docs.material-tailwind.com/icons/google.svg"
                   alt="metamask"
@@ -60,7 +60,6 @@ function NavList() {
                 />
                 <h1 className="text-white">Continue with Google</h1>
               </Button>
-            </a>
           </>
         )}
         <Typography as="li" variant="h5" className="p-1 font-bold">

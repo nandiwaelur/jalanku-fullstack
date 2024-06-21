@@ -1,5 +1,5 @@
 import Provider from "../components/Provider";
-import { auth } from "../lib/auth"
+import { auth } from "../lib/auth";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 export const metadata = {

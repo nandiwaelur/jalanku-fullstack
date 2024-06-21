@@ -1,6 +1,6 @@
 "use client";
-import Navbar from "../../components/landing_page/NavbarCustom";
-import Footer from "../../components/landing_page/Footer";
+import NavigationBar from "../../components/NavigationBar";
+import Footer from "../../components/Footer";
 import {
   Card,
   CardBody,
@@ -10,7 +10,7 @@ import {
 export default function Profile() {
   return (
     <>
-      <Navbar />
+      <NavigationBar />
       <div className="bg-[url('/img/wave.svg')] bg-cover min-h-screen">
         <div className="flex flex-col lg:flex-row justify-center gap-5 mx-5 px-5">
           <Card className="w-90 mt-5 lg:mt-10 ">

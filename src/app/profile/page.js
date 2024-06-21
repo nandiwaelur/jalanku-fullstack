@@ -1,24 +1,23 @@
 "use client";
-import Navbar from "../../components/landing_page/NavbarCustom";
-import Footer from "../../components/landing_page/Footer";
+import NavigationBar from "../../components/NavigationBar";
+import Footer from "../../components/Footer";
 import {
   Card,
   CardBody,
-  CardHeader,
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 export default function Profile() {
   const { data: session } = useSession();
   if (!session) {
-    redirect('/api/auth/signin')
+    redirect('/')
   }
   return (
     <>
-      <Navbar />
-      <div className="bg-[url('/img/wave.svg')] bg-cover min-h-screen">
+      <NavigationBar />
+      <div className="bg-[url('/img/wave.svg')] bg-cover min-h-[75vh]">
         <div className="flex flex-auto justify-center">
           {!session && (
             <>
@@ -29,7 +28,7 @@ export default function Profile() {
             <>
               <Card className="w-96 mt-10">
               <img
-                src={session.user.image}
+                src={session.user.image.replace(/=s\d+/, '=s400')}
                 alt="profile-picture"
                 className="bg-cover"
               />
@@ -42,7 +41,7 @@ export default function Profile() {
                     className="font-medium"
                     textGradient
                   >
-                   {session.user.email}
+                  {session.user.email}
                   </Typography>
                 </CardBody>
                 <CardFooter className="flex justify-center gap-7 pt-2"></CardFooter>

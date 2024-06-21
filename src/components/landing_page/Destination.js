@@ -4,18 +4,13 @@ import {
   Typography,
   Button,
   Dialog,
-  DialogHeader,
-  DialogFooter,
-  CardHeader,
-  CardFooter,
-  Input,
-  Checkbox,
 } from "@material-tailwind/react";
 import axios from "axios";
 import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
 import { useState } from "react";
 function Destination() {
+  // show more text
+  const [moreText, setMoretext] = useState(false);
   // dialog when searchbar is empty
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
@@ -36,28 +31,19 @@ function Destination() {
     } else {
       const data = { destination_name: rekomendasi };
       try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
           data
         );
         setDataRekomendasi(response.data);
       } catch (error) {
-        console.error("can't send recommendation:", error);
+        console.error("can't send recommendation");
       }
     }
   };
   return (
     <>
       <div className="relative flex h-[80vh] content-center items-center justify-center pb-32 -mb-32">
-        <Dialog open={open} handler={handleOpen}  className="bg-transparent shadow-none">
-          <Card className="mx-auto w-full max-w-[24rem]">
-            <CardBody className="flex flex-row gap-4 w-full h-full">
-              <h1>Silahkan isi tujuan wisata anda</h1>
-              <Button className="bg-[#1EB47D] " onClick={handleOpen}>
-                Oke
-              </Button>
-            </CardBody>
-          </Card>
-        </Dialog>
         <div className="absolute top-0 h-full w-full bg-[url('/img/bg-1.png')] bg-cover bg-top" />
         <div className="absolute top-0 h-96 w-full bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
@@ -143,16 +129,19 @@ function Destination() {
               return (
                 <div
                   key={index}
-                  className="max-w-sm max-h-[50vh] p-6 rounded-2xl shadow-2xl"
+                  className="max-w-sm  p-5 mb-5 rounded-2xl shadow-2xl"
                 >
                   <h2>{recommendation.destination_name}</h2>
                   <p>Kategori: {recommendation.category}</p>
                   <p>Harga: {recommendation.price}</p>
                   <p>Rating: {recommendation.rating}</p>
-                  <div className="">
-                    <p>Deskripsi: {recommendation.description}</p>
-                  </div>
-                  <img src={recommendation.image} />
+                  <p>
+                    {moreText
+                      ? recommendation.description
+                      : `${recommendation.description.substring(0, 100)}`}
+                    <button className="text-sm px-2 py-2 " onClick={() => setMoretext(!moreText)}>{moreText ? " Show less" : " Show more"}</button>
+                  </p>
+                  <img src={recommendation.image} className="bg-auto" />
                 </div>
               );
             })}
@@ -167,7 +156,7 @@ function Destination() {
       >
         <Card className="mx-auto w-full max-w-[17rem]">
           <CardBody>
-          <a href="/api/auth/signin" >
+            <a href="/api/auth/signin">
               <Button size="lg" className="flex items-center gap-3 bg-black">
                 <img
                   src="https://docs.material-tailwind.com/icons/google.svg"
@@ -177,6 +166,20 @@ function Destination() {
                 <h1 className="text-white">Continue with Google</h1>
               </Button>
             </a>
+          </CardBody>
+        </Card>
+      </Dialog>
+      <Dialog
+        open={open}
+        handler={handleOpen}
+        className="bg-transparent shadow-none"
+      >
+        <Card className="mx-auto w-full max-w-[24rem]">
+          <CardBody className="flex flex-row gap-4 w-full h-full">
+            <h1>Silahkan isi tujuan wisata anda</h1>
+            <Button className="bg-[#1EB47D] " onClick={handleOpen}>
+              Oke
+            </Button>
           </CardBody>
         </Card>
       </Dialog>

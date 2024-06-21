@@ -1,7 +1,7 @@
 import { Typography } from "@material-tailwind/react";
 export function Footer() {
   return (
-    <footer className="relative pt-8 pb-6 bg-[#1EB47D]">
+    <footer className="relative pt-6 pb-6 bg-[#1EB47D]">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-3 pb-5 text-center lg:text-left">
           <div className="w-full mt-5 lg:w-[20rem]">
@@ -12,7 +12,7 @@ export function Footer() {
               </Typography>
             </a>
           </div>
-          <div className="text-white">
+          <div className="text-white ml-20">
             <a href="/">
               <h1 className="my-2">Faqs</h1>
             </a>
@@ -23,7 +23,7 @@ export function Footer() {
               <h1 className="my-2">Help Center</h1>
             </a>
           </div>
-          <div className="text-white ml-5">
+          <div className="text-white ml-10">
             <a href="/">
               <h1 className="my-2">Privacy Policy</h1>
             </a>

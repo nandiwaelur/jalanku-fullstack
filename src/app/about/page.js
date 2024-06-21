@@ -58,7 +58,6 @@ export default function Profile() {
               </Typography>
             </CardBody>
           </Card>
-          
           <Card className="w-90 mt-5 lg:mt-10 grow-0">
               <img src="/about/dhuta.png" alt="profile-picture" className="object-cover w-[400px]"/>
             <CardBody className="text-center">

@@ -7,13 +7,13 @@ export const metadata = {
     "Ditenagai oleh kecerdasan buatan yang dibuat oleh orang dengan kecerdasan asli",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ session, children }) {
   return (
     <html lang="en">
       <link rel="icon" href="/img/logo_jalanku.svg" sizes="any" />
-      <body>
-        <Provider>{children}</Provider>
-      </body>
+      <Provider session={session}>
+        <body>{children}</body>
+      </Provider>
       <GoogleAnalytics gaId="G-WXG3TWTM12" />
     </html>
   );

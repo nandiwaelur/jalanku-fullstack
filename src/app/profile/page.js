@@ -9,8 +9,12 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 export default function Profile() {
   const { data: session } = useSession();
+  if (!session) {
+    redirect('/api/auth/signin')
+  }
   return (
     <>
       <Navbar />

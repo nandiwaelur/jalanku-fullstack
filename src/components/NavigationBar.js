@@ -1,3 +1,4 @@
+"use client"
 import {
   Navbar,
   Collapse,
@@ -9,7 +10,7 @@ import {
   MenuHandler,
   MenuList,
   MenuItem,
-} from "@material-tailwind/react";
+} from "./MaterialTailwindComponent";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -23,12 +24,12 @@ function NavList() {
           <>
             <Menu>
               <MenuHandler>
-                <Avatar
-                  variant="circular"
-                  alt="user image"
-                  className="cursor-pointer"
-                  src={session.user.image}
-                />
+                  <Avatar
+                    variant="circular"
+                    alt="user image"
+                    className="cursor-pointer"
+                    src={session.user.image}
+                  />
               </MenuHandler>
               <MenuList>
                 <a href="/profile" className="outline-none">
@@ -64,6 +65,14 @@ function NavList() {
         )}
         <Typography as="li" variant="h5" className="p-1 font-bold">
           <a
+            href="/recommend"
+            className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]"
+          >
+            Rekomendasi
+          </a>
+        </Typography>
+        <Typography as="li" variant="h5" className="p-1 font-bold">
+          <a
             href="/about"
             className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]"
           >
@@ -87,7 +96,7 @@ export function NavbarCustom() {
   }, []);
   return (
     <>
-      <Navbar fullWidth="true" className="bg-[#1EB47D] px-6 py-3">
+      <Navbar color="transparent" className="w-full ">
         <div className="flex items-center justify-between text-[#ffffff]">
           <Typography
             as="a"

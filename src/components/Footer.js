@@ -1,4 +1,5 @@
-import { Typography } from "@material-tailwind/react";
+"use client"
+import { Typography } from "./MaterialTailwindComponent";
 export function Footer() {
   return (
     <footer className="relative pt-6 pb-6 bg-[#1EB47D]">

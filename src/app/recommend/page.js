@@ -4,10 +4,10 @@ import Recommended from "@/components/Recommended";
 import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
 export default async function Recommend() {
-  // const session = await auth();
-  // if (!session) {
-  //   redirect('/');
-  // }
+  const session = await auth();
+  if (!session) {
+    redirect('/');
+  }
   return (
     <>
       <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top relative">

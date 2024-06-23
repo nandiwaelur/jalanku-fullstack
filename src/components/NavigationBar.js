@@ -1,134 +1,111 @@
-"use client";
-import {
-  Navbar,
-  Collapse,
-  Typography,
-  IconButton,
-  Button,
-  Avatar,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-} from "./MaterialTailwindComponent";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
-function NavList() {
-  const { data: session } = useSession();
-  return (
-    <>
-      <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-        {session && (
-          <>
-            <Menu>
-              <MenuHandler>
-                <Avatar
-                  variant="circular"
-                  alt="User Image"
-                  className="cursor-pointer"
-                  src={session.user.image}
-                />
-              </MenuHandler>
-              <MenuList>
-                <Link href="/profile" className="outline-none">
-                  <MenuItem className="flex items-center gap-5 ">
-                    <Typography variant="small" className="font-medium">
-                      Profile
-                    </Typography>
-                  </MenuItem>
-                </Link>
-                <MenuItem
-                  className="flex items-center gap-5 "
-                  onClick={() => signOut("google")}
-                >
-                  <Typography variant="small" className="font-medium">
-                    Sign Out
-                  </Typography>
-                </MenuItem>
-              </MenuList>
-            </Menu>
-            <Link href={"/profile"}>
-              <h1 className="font-bold cursor-pointer">{session.user.name} </h1>
-            </Link>
-          </>
-        )}
-        {!session && (
-          <>
-            <Button
-              size="lg"
-              className="flex items-center gap-3 bg-black"
-              onClick={() => signIn("google")}
-            >
-              <img
-                src="https://docs.material-tailwind.com/icons/google.svg"
-                alt="metamask"
-                className="h-6 w-6"
-              />
-              <h1 className="text-white">Continue with Google</h1>
-            </Button>
-          </>
-        )}
-        <Typography as="li" variant="h5" className="p-1 font-bold">
-          <Link
-            href="/recommend"
-            className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]"
-          >
-            Rekomendasi
-          </Link>
-        </Typography>
-        <Typography as="li" variant="h5" className="p-1 font-bold">
-          <a
-            href="/about"
-            className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]"
-          >
-            Tentang
-          </a>
-        </Typography>
-      </ul>
-    </>
-  );
-}
+import { auth } from "@/libs/auth";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
-export function NavbarCustom() {
-  const [openNav, setOpenNav] = useState(false);
-  const handleWindowResize = () =>
-    window.innerWidth >= 960 && setOpenNav(false);
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
+export default async function NavigationBar() {
+  const session = await auth();
   return (
     <>
-      <Navbar color="transparent" className="w-full ">
-        <div className="flex items-center justify-between ">
-          <Link href="/">
-            <h1 className="font-extrabold cursor-pointer text-[#ffffff] text-5xl">Jalanku.</h1>
-          </Link>
-          <div className="hidden lg:block">
-            <NavList />
+      <header className="relative bg-transparent flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm py-4 ">
+        <nav
+          className="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between"
+          aria-label="Global"
+        >
+          <div className="flex items-center justify-between">
+            <Link
+              className="flex-none text-4xl font-extrabold text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+              href="/"
+            >
+              Jalanku.
+            </Link>
+            <div className="sm:hidden">
+              <button
+                type="button"
+                className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border-none  bg-white  shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10"
+                data-hs-collapse="#navbar-with-mega-menu"
+                aria-controls="navbar-with-mega-menu"
+                aria-label="Toggle navigation"
+              >
+                <svg
+                  className="hs-collapse-open:hidden flex-shrink-0 size-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="3" x2="21" y1="6" y2="6" />
+                  <line x1="3" x2="21" y1="12" y2="12" />
+                  <line x1="3" x2="21" y1="18" y2="18" />
+                </svg>
+                <svg
+                  className="hs-collapse-open:block hidden flex-shrink-0 size-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M18 6 6 18" />
+                  <path d="m6 6 12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
-          <IconButton
-            variant="text"
-            className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
-            ripple={false}
-            onClick={() => setOpenNav(!openNav)}
+          <div
+            id="navbar-with-mega-menu"
+            className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
           >
-            {openNav ? (
-              <XMarkIcon className="h-10 w-10 mr-5" strokeWidth={2} />
-            ) : (
-              <Bars3Icon className="h-20 w-10 mr-5" strokeWidth={2} />
-            )}
-          </IconButton>
-        </div>
-        <Collapse open={openNav}>
-          <NavList />
-        </Collapse>
-      </Navbar>
+            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+              {session && (
+                <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] ">
+                  <button
+                    id="hs-mega-menu-basic-dr"
+                    type="button"
+                    className="flex items-center w-full "
+                  >
+                    <img
+                      src={session.user.image}
+                      className="inline-block size-[46px] rounded-full"
+                    />
+                    <h1 className="text-white font-semibold text-2xl ml-3">
+                      {session.user.name}
+                    </h1>
+                  </button>
+                  <div className="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 z-10 bg-white sm:shadow-md rounded-lg p-2  before:absolute top-full sm:border before:-top-5 before:start-0 before:w-full before:h-5 hidden">
+                    <Link
+                      className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+                      href={"/profile"}
+                    >
+                      Profil
+                    </Link>
+                    <LogoutButton />
+                  </div>
+                </div>
+              )}
+              {!session && <LoginButton />}
+              <Link
+                className="font-semibold text-2xl text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+                href="/recommend"
+              >
+                Rekomendasi
+              </Link>
+              <Link className="font-semibold text-2xl text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]" href="/about">
+                About
+              </Link>
+            </div>
+          </div>
+        </nav>
+      </header>
     </>
   );
 }
-export default NavbarCustom;

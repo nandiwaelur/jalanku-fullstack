@@ -1,4 +1,5 @@
 import Provider from "@/components/Provider";
+import PrelineScript from "@/components/PrelineScript";
 import { auth } from "@/libs/auth";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
@@ -17,6 +18,7 @@ export default async function RootLayout({ children }) {
         <body>{children}</body>
       </Provider>
       <GoogleAnalytics gaId="G-WXG3TWTM12" />
+      <PrelineScript/>
     </html>
   );
 }

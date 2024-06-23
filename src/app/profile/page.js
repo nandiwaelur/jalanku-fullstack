@@ -10,11 +10,11 @@ export default async function Profile() {
   }
   return (
     <>
-      <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top relative">
+      <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
         <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
           <NavigationBar />
         </div>
-        <div className="w-full h-screen">
+        <div className="w-full h-full">
           {session && (
             <div className="min-h-[75vh]">
               <div className="flex flex-auto justify-center">

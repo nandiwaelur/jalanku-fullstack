@@ -45,7 +45,11 @@ export default function Recommended() {
             </div>
           </form>
         </div>
-        <div className="overflow-y-auto w-full h-full lg:h-[75vh] rounded-3xl">
+        <div className="overflow-y-auto w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
+          [&::-webkit-scrollbar-track]:rounded-full
+        [&::-webkit-scrollbar-track]:bg-white
+          [&::-webkit-scrollbar-thumb]:rounded-full
+        [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]">
           {/* Rekomendasi */}
           <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10 ">
             {Object.keys(dataRekomendasi).map((key, index) => {

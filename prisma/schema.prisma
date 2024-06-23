@@ -76,3 +76,11 @@ model Authenticator {
  
   @@id([userId, credentialID])
 }
+
+// saved recommendation data
+
+model recommendation_data{
+  id    Int @unique
+  userId String 
+  recommendation_saved String
+}

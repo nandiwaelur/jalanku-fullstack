@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Navbar,
   Collapse,
@@ -24,52 +24,59 @@ function NavList() {
           <>
             <Menu>
               <MenuHandler>
-                  <Avatar
-                    variant="circular"
-                    alt="user image"
-                    className="cursor-pointer"
-                    src={session.user.image}
-                  />
+                <Avatar
+                  variant="circular"
+                  alt="User Image"
+                  className="cursor-pointer"
+                  src={session.user.image}
+                />
               </MenuHandler>
               <MenuList>
-                <a href="/profile" className="outline-none">
-                <MenuItem className="flex items-center gap-5 ">
+                <Link href="/profile" className="outline-none">
+                  <MenuItem className="flex items-center gap-5 ">
                     <Typography variant="small" className="font-medium">
                       Profile
                     </Typography>
-                </MenuItem>
-                </a>
-                  <MenuItem className="flex items-center gap-5 " onClick={()=> signOut("google")}>
-                    <Typography variant="small" className="font-medium">
-                      Sign Out
-                    </Typography>
                   </MenuItem>
+                </Link>
+                <MenuItem
+                  className="flex items-center gap-5 "
+                  onClick={() => signOut("google")}
+                >
+                  <Typography variant="small" className="font-medium">
+                    Sign Out
+                  </Typography>
+                </MenuItem>
               </MenuList>
             </Menu>
             <Link href={"/profile"}>
-            <h1 className="font-bold cursor-pointer">{session.user.name} </h1>
+              <h1 className="font-bold cursor-pointer">{session.user.name} </h1>
             </Link>
           </>
         )}
         {!session && (
           <>
-              <Button size="lg" className="flex items-center gap-3 bg-black" onClick={()=> signIn("google")}>
-                <img
-                  src="https://docs.material-tailwind.com/icons/google.svg"
-                  alt="metamask"
-                  className="h-6 w-6"
-                />
-                <h1 className="text-white">Continue with Google</h1>
-              </Button>
+            <Button
+              size="lg"
+              className="flex items-center gap-3 bg-black"
+              onClick={() => signIn("google")}
+            >
+              <img
+                src="https://docs.material-tailwind.com/icons/google.svg"
+                alt="metamask"
+                className="h-6 w-6"
+              />
+              <h1 className="text-white">Continue with Google</h1>
+            </Button>
           </>
         )}
         <Typography as="li" variant="h5" className="p-1 font-bold">
-          <a
+          <Link
             href="/recommend"
             className="flex items-center text-[#ffffff] hover:text-[#6CEFBF]"
           >
             Rekomendasi
-          </a>
+          </Link>
         </Typography>
         <Typography as="li" variant="h5" className="p-1 font-bold">
           <a
@@ -97,15 +104,10 @@ export function NavbarCustom() {
   return (
     <>
       <Navbar color="transparent" className="w-full ">
-        <div className="flex items-center justify-between text-[#ffffff]">
-          <Typography
-            as="a"
-            href="/"
-            variant="h1"
-            className="font-extrabold cursor-pointer py-1.5"
-          >
-            Jalanku.
-          </Typography>
+        <div className="flex items-center justify-between ">
+          <Link href="/">
+            <h1 className="font-extrabold cursor-pointer text-[#ffffff] text-5xl">Jalanku.</h1>
+          </Link>
           <div className="hidden lg:block">
             <NavList />
           </div>

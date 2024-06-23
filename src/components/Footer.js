@@ -1,16 +1,15 @@
-"use client"
-import { Typography } from "./MaterialTailwindComponent";
-export function Footer() {
+export default function Footer() {
   return (
+    <>
     <footer className="relative pt-6 pb-6 bg-[#1EB47D]">
       <div className="container mx-auto">
         <div className="flex flex-wrap pt-3 pb-5 text-center lg:text-left">
           <div className="w-full mt-5 lg:w-[20rem]">
             <a href="/">
               {" "}
-              <Typography variant="h1" className="mb-4 font-bold" color="white">
+              <h1 className="mb-4 text-5xl font-bold text-white" >
                 JALANKU
-              </Typography>
+              </h1>
             </a>
           </div>
           <div className="text-white ml-20">
@@ -38,7 +37,7 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+    </>
+  )
 }
 
-export default Footer;

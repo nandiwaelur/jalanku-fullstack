@@ -7,9 +7,6 @@ export default function Recommended() {
   console.log(dataRekomendasi);
   const kirimRekomendasi = async (e) => {
     e.preventDefault();
-    if (!rekomendasi) {
-      handleOpen();
-    } else {
       const data = { destination_name: rekomendasi };
       try {
         const response = await axios.post(
@@ -18,9 +15,8 @@ export default function Recommended() {
         );
         setDataRekomendasi(response.data);
       } catch (error) {
-        console.log("error!");
+        alert("error when sending recommendation");
       }
-    }
   };
   return (
     <>
@@ -55,21 +51,21 @@ export default function Recommended() {
             {Object.keys(dataRekomendasi).map((key, index) => {
               const recommendation = dataRekomendasi[key];
               return (
-                <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[75vh] lg:h-[30vh] mt-24" key={index}>
+                <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[75vh] lg:h-[30vh] mt-24" key={index}>
                   <img
                     src={recommendation.image}
                     alt="gambar rekomendasi"
-                    class="absolute inset-0 h-full w-full object-cover"
+                    className="absolute inset-0 h-full w-full object-cover"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-                  <h3 class="z-10 mt-3 text-3xl font-bold text-white">{recommendation.destination_name}</h3>
-                  <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
+                  <h3 className="z-10 mt-3 text-3xl font-bold text-white">{recommendation.destination_name}</h3>
+                  <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                   Kategori: {recommendation.category}
                   </div>
-                  <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                  <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                   Rating: {recommendation.rating}
                   </div>
-                  <div class="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                  <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                   Tiket Masuk: Rp.{recommendation.price}
                   </div>
                 </div>

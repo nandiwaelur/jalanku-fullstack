@@ -1,14 +1,13 @@
-import Provider from "@/components/Provider";
-import PrelineScript from "@/components/PrelineScript";
 import { auth } from "@/libs/auth";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Provider from "@/components/Provider";
+import PrelineScript from "@/components/PrelineScript";
 import "./globals.css";
 export const metadata = {
   title: "Jalanku",
   description:
     "Ditenagai oleh kecerdasan buatan yang dibuat oleh orang dengan kecerdasan asli",
 };
-
 export default async function RootLayout({ children }) {
   const session = await auth();
   return (

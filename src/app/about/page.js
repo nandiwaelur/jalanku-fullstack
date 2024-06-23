@@ -9,7 +9,7 @@ export default function Profile() {
         </div>
         <div className="w-full h-screen ">
           <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-10 p-5">
-    
+         {/*  */}
           </div>
         </div>
         <Footer />

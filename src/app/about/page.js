@@ -13,8 +13,8 @@ export default function Profile() {
           <img src={"/img/logo_jalanku.jpg"} alt="jalanku_logo" className="flex justify-center object-center"/>
           </div>
          
-          <h1 className="text-6xl font-bold text-center">Jalanku</h1>
-          <h4 className="text-center">by nandiwaelur project</h4>
+          <h1 className="text-6xl text-white lg:text-black font-bold text-center">Jalanku</h1>
+          <h4 className="text-center text-white lg:text-black">by nandiwaelur project</h4>
 
         </div>
         </div>

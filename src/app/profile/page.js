@@ -22,11 +22,12 @@ export default async function Profile() {
                   <img
                     src={session.user.image.replace(/=s\d+/, "=s400")}
                     alt="profile-picture"
-                    className="bg-cover rounded-3xl"
+                    className="inline-block size-[200px] ml-[90px] mt-10 rounded-full"
                   />
+
                   <div className="text-center">
                     <h4 className="text-xl mb-2 mt-2 font-bold">{session.user.name}</h4>
-                    <h4 className="text-sm  mb-2 ">{session.user.email}</h4>
+                    <h4 className="text-sm  mb-10 ">{session.user.email}</h4>
                   </div>
                 </div>
               </div>

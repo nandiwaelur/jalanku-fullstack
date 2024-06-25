@@ -11,21 +11,22 @@ export default async function Profile() {
   return (
     <>
       <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
-        <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
+      <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
           <NavigationBar />
         </div>
         <div className="w-full h-full">
           {session && (
             <div className="min-h-[75vh]">
-              <div className="flex flex-auto justify-center">
-                <div className="w-96 mt-10 bg-white rounded-3xl">
+              <div className="flex justify-center ">
+                <div className="bg-white rounded-3xl my-[15vh]">
+                <div className="w-96">
                   <img
                     src={session.user.image.replace(/=s\d+/, "=s400")}
                     alt="profile-picture"
                     className="inline-block size-[200px] ml-[90px] mt-10 rounded-full"
                   />
-
-                  <div className="text-center">
+                </div>
+                <div className="text-center">
                     <h4 className="text-xl mb-2 mt-2 font-bold">{session.user.name}</h4>
                     <h4 className="text-sm  mb-10 ">{session.user.email}</h4>
                   </div>
@@ -35,7 +36,7 @@ export default async function Profile() {
           )}
           {!session && (
             <>
-              <h1 className="flex justify-center text-white text-9xl ">
+              <h1 className="flex justify-center text-white text-9xl">
                 Tidak Ada User!
               </h1>
             </>

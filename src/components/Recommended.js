@@ -22,19 +22,19 @@ export default function Recommended() {
     <>
       <div className="lg:bg-white w-screen lg:w-[190vh] mt-5 lg:h-[90vh] p-10 lg:rounded-2xl shadow-2xl ">
         <div className="flex">
-          <form className="w-[50vh] mx-auto" onSubmit={kirimRekomendasi}>
+          <form className="w-[70vh] mx-auto" onSubmit={kirimRekomendasi}>
             <div className="relative">
               <input
                 type="text"
                 onChange={(e) => setRekomendasi(e.target.value)}
                 id="default-search"
-                className="block w-full p-4 ps-10 text-sm bg-white rounded-3xl shadow-2xl outline outline-lime-700"
+                className="block w-full p-4  text-sm bg-white rounded-lg shadow-2xl outline outline-[#1EB47D] "
                 placeholder="Mau kemana hari ini?"
                 required
               />
               <button
                 type="submit"
-                className="cursor-pointer text-white absolute end-2.5 bottom-2.5 bg-green-500 font-medium rounded-full text-sm px-4 py-2"
+                className="cursor-pointer text-white absolute end-2.5 bottom-2.5 bg-green-500 font-medium rounded-lg text-sm px-4 py-2"
               >
                 Rekomendasi!
               </button>

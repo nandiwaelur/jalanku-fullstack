@@ -30,14 +30,14 @@ export default function page() {
           </div>
         </div>
         {/*  */}
-        <div className="bg-inherit">
+        <div className="bg-transparent">
           <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white">
-            <div className=" text-center">
-              <div className="mb-2 mt-10 font-extrabold text-6xl">
+            <div className="mt-10 text-center">
+              <div className=" font-extrabold text-6xl">
                 Jelajahi Destinasi{" "}
                 <span className="text-[#1EB47D]">Impianmu</span>
               </div>
-              <div className="mb-2 font-extrabold text-xl text-[#000000] mt-4">
+              <div className="my-2 font-extrabold text-xl text-[#000000] mx-2">
                 Rekomendasi Wisata Personal dengan AI!
               </div>
             </div>
@@ -111,11 +111,12 @@ export default function page() {
             </div>
           </section>
         </div>
+        <div className="bg-white w-full h-full">
+          
+        </div>
         <Footer />
       </div>
-
     </div>
-
     </>
   );
 }

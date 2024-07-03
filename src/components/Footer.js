@@ -1,43 +1,18 @@
 export default function Footer() {
   return (
     <>
-    <footer className="relative pt-6 pb-6 bg-[#1EB47D]">
-      <div className="container mx-auto">
-        <div className="flex flex-wrap pt-3 pb-5 text-center lg:text-left">
-          <div className="w-full mt-5 lg:w-[20rem]">
-            <a href="/">
-              {" "}
-              <h1 className="mb-4 text-5xl font-bold text-white" >
-                JALANKU
-              </h1>
-            </a>
-          </div>
-          <div className="text-white ml-20">
-            <a href="/">
-              <h1 className="my-2">Faqs</h1>
-            </a>
-            <a href="/">
-              <h1 className="my-2">Live Chat</h1>
-            </a>
-            <a href="/">
-              <h1 className="my-2">Help Center</h1>
-            </a>
-          </div>
-          <div className="text-white ml-10">
-            <a href="/">
-              <h1 className="my-2">Privacy Policy</h1>
-            </a>
-            <a href="/">
-              <h1 className="my-2">Terms of Service</h1>
-            </a>
-            <a href="/">
-              <h1 className="my-2">Cookie Policy</h1>
-            </a>
+      <footer className="relative overflow-hidden bg-[#34E0A1]">
+        <div className="relative z-10">
+          <div className="w-full max-w-5xl px-4 xl:px-0 py-10 lg:pt-16 mx-auto">
+            <div className="inline-flex items-center">
+              <h1 className=" text-5xl font-extrabold text-white">Jalanku.</h1>
+              <div className="border-s border-white ps-5 ms-5">
+                <p className="text-xl text-white">nandiwaelur</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </footer>
+      </footer>
     </>
-  )
+  );
 }
-

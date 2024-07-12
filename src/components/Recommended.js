@@ -4,19 +4,32 @@ import axios from "axios";
 export default function Recommended() {
   const [rekomendasi, setRekomendasi] = useState(null);
   const [dataRekomendasi, setDataRekomendasi] = useState([]);
-  console.log(dataRekomendasi);
+  console.log(dataRekomendasi)
   const kirimRekomendasi = async (e) => {
     e.preventDefault();
-      const data = { destination_name: rekomendasi };
+    const data = { destination_name: rekomendasi };
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
+        data
+      );
+      setDataRekomendasi(response.data);
+    } catch (error) {
+      alert("error when sending recommendation");
+    }
+  };
+  const simpanRekomendasi = async (e) => {
+    const data = { recommendation_saved: JSON.stringify(dataRekomendasi) };
+    if (dataRekomendasi.length === 0) {
+      alert("data rekomendasi kosong!");
+    } else {
       try {
-        const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_API_BACKEND}/recommend`,
-          data
-        );
-        setDataRekomendasi(response.data);
+        const response = await axios.post("/api/recommends", data);
+        console.log(response);
       } catch (error) {
-        alert("error when sending recommendation");
+        alert("error when saving recommendation");
       }
+    }
   };
   return (
     <>
@@ -40,33 +53,49 @@ export default function Recommended() {
               </button>
             </div>
           </form>
+          <div className="w-50">
+            {" "}
+            <button
+              onClick={simpanRekomendasi}
+              className="cursor-pointer text-white bg-slate-700 font-medium rounded-lg text-sm px-4 py-2"
+            >
+              Simpan
+            </button>
+          </div>
         </div>
-        <div className="overflow-y-auto w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
+        <div
+          className="overflow-y-auto w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
           [&::-webkit-scrollbar-track]:rounded-full
         [&::-webkit-scrollbar-track]:bg-white
           [&::-webkit-scrollbar-thumb]:rounded-full
-        [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]">
+        [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
+        >
           {/* Rekomendasi */}
           <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10 ">
             {Object.keys(dataRekomendasi).map((key, index) => {
               const recommendation = dataRekomendasi[key];
               return (
-                <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[75vh] lg:h-[30vh] mt-24" key={index}>
+                <div
+                  className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[75vh] lg:h-[30vh] mt-24"
+                  key={index}
+                >
                   <img
                     src={recommendation.image}
                     alt="gambar rekomendasi"
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
-                  <h3 className="z-10 mt-3 text-3xl font-bold text-white">{recommendation.destination_name}</h3>
+                  <h3 className="z-10 mt-3 text-3xl font-bold text-white">
+                    {recommendation.destination_name}
+                  </h3>
                   <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Kategori: {recommendation.category}
+                    Kategori: {recommendation.category}
                   </div>
                   <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Rating: {recommendation.rating}
+                    Rating: {recommendation.rating}
                   </div>
                   <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Tiket Masuk: Rp.{recommendation.price}
+                    Tiket Masuk: Rp.{recommendation.price}
                   </div>
                 </div>
               );

@@ -80,7 +80,6 @@ model Authenticator {
 // saved recommendation data
 
 model recommendation_data{
-  id    Int @unique
-  userId String 
+  id                   String   @id @default(cuid())
   recommendation_saved String
 }

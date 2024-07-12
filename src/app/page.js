@@ -54,15 +54,6 @@ export default function page() {
                 <h3 className="z-10 mt-3 text-3xl font-bold text-white">
                   Bendung Lepen
                 </h3>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Kategori: Taman Hiburan
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Rating: 4
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Tiket Masuk: Rp.0
-                </div>
               </div>
               <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[60vh] lg:h-[30vh] lg:mb-12 lg:mt-12">
                 <img
@@ -76,15 +67,6 @@ export default function page() {
                 <h3 className="z-10 mt-3 text-3xl font-bold text-white">
                   Nol Kilometer Jl.Malioboro
                 </h3>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Kategori: Taman Hiburan
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Rating: 4
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Tiket Masuk: Rp.0
-                </div>
               </div>
               <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[60vh] lg:h-[30vh] lg:mb-12 lg:mt-12">
                 <img
@@ -98,15 +80,6 @@ export default function page() {
                 <h3 className="z-10 mt-3 text-3xl font-bold text-white">
                   Alun Alun Selatan Yogyakarta
                 </h3>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Kategori: Taman Hiburan
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Rating: 4
-                </div>
-                <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                  Tiket Masuk: Rp.0
-                </div>
               </div>
             </div>
           </section>

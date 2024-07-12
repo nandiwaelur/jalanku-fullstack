@@ -77,9 +77,8 @@ model Authenticator {
   @@id([userId, credentialID])
 }
 
-// saved recommendation data
-
-model recommendation_data{
+model RecommendationData{
   id                   String   @id @default(cuid())
+  userID String 
   recommendation_saved String
 }

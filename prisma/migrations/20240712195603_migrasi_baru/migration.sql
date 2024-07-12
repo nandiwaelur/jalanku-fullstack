@@ -63,9 +63,12 @@ CREATE TABLE "Authenticator" (
 );
 
 -- CreateTable
-CREATE TABLE "recommendation_data" (
-    "id" INTEGER NOT NULL,
-    "recommendation_saved" TEXT NOT NULL
+CREATE TABLE "RecommendationData" (
+    "id" TEXT NOT NULL,
+    "userID" TEXT NOT NULL,
+    "recommendation_saved" TEXT NOT NULL,
+
+    CONSTRAINT "RecommendationData_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -76,9 +79,6 @@ CREATE UNIQUE INDEX "Session_sessionToken_key" ON "Session"("sessionToken");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Authenticator_credentialID_key" ON "Authenticator"("credentialID");
-
--- CreateIndex
-CREATE UNIQUE INDEX "recommendation_data_id_key" ON "recommendation_data"("id");
 
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -35,7 +35,6 @@ export default function Recommended({ session }) {
       }
     }
   };
-
   return (
     <>
       <div className="lg:bg-white w-screen lg:w-[190vh] lg:h-full h-[100vh] p-10 lg:rounded-2xl shadow-2xl ">

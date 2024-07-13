@@ -31,13 +31,13 @@ export default function page() {
         </div>
         {/*  */}
         <div className="bg-transparent">
-          <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white">
+          <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white dark:bg-[#2F3645]">
             <div className="mt-10 text-center">
-              <div className=" font-extrabold text-6xl">
+              <div className="font-extrabold text-6xl dark:text-white">
                 Jelajahi Destinasi{" "}
                 <span className="text-[#1EB47D]">Impianmu</span>
               </div>
-              <div className="my-2 font-extrabold text-xl text-[#000000] mx-2">
+              <div className="my-2 font-extrabold text-xl dark:text-white mx-2">
                 Rekomendasi Wisata Personal dengan AI!
               </div>
             </div>
@@ -84,7 +84,7 @@ export default function page() {
             </div>
           </section>
         </div>
-        <div className="bg-white w-full h-full">
+        <div className="bg-white dark:bg-[#2F3645] w-full h-full">
           
         </div>
         <Footer />

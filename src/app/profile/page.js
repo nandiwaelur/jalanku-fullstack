@@ -1,46 +1,46 @@
-import NavigationBar from "@/components/NavigationBar";
+import NavigationBar from "@/components/Navigation/NavigationBar";
 import Footer from "@/components/Footer";
 import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
+import prisma from "@/libs/db";
+import SavedRecommendations from "@/components/Profiles/SavedRecommendations";
+import UserProfiles from "@/components/Profiles/UserProfiles";
 
 export default async function Profile() {
   const session = await auth();
   if (!session) {
     redirect("/");
   }
+  const recommendation = await prisma.recommendationData.findMany({
+    where: {
+      userID: session?.user.id,
+    },
+  });
+  const rekomendasiData = recommendation.map((rekomendasi) => {
+    const recommendationsArray = Object.values(
+      JSON.parse(rekomendasi.recommendation_saved)
+    );
+    return {
+      recommendations: recommendationsArray.map((rekomendasi) => ({
+        destinationName: rekomendasi.destination_name,
+        category: rekomendasi.category,
+        image: rekomendasi.image,
+        price: rekomendasi.price,
+        rating: rekomendasi.rating,
+      })),
+    };
+  });
   return (
     <>
       <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
-      <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
+        <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
           <NavigationBar />
         </div>
-        <div className="w-full h-full">
-          {session && (
-            <div className="min-h-[75vh]">
-              <div className="flex justify-center ">
-                <div className="bg-white rounded-3xl my-[15vh]">
-                <div className="w-96">
-                  <img
-                    src={session.user.image.replace(/=s\d+/, "=s400")}
-                    alt="profile-picture"
-                    className="inline-block size-[200px] ml-[90px] mt-10 rounded-full"
-                  />
-                </div>
-                <div className="text-center">
-                    <h4 className="text-xl mb-2 mt-2 font-bold">{session.user.name}</h4>
-                    <h4 className="text-sm  mb-10 ">{session.user.email}</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-          {!session && (
-            <>
-              <h1 className="flex justify-center text-white text-9xl">
-                Tidak Ada User!
-              </h1>
-            </>
-          )}
+        <div className="w-full h-full mb-5">
+          <div className="flex justify-center">
+            <UserProfiles session={session} />
+            <SavedRecommendations rekomendasiData={rekomendasiData}/>
+          </div>
         </div>
         <Footer />
       </div>

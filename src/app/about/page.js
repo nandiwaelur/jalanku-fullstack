@@ -1,4 +1,4 @@
-import NavigationBar from "@/components/NavigationBar";
+import NavigationBar from "@/components/Navigation/NavigationBar";
 import Footer from "@/components/Footer";
 export default function Profile() {
   return (

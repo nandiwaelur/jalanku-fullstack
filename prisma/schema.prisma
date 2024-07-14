@@ -79,6 +79,6 @@ model Authenticator {
 
 model RecommendationData{
   id                   String   @id @default(cuid())
-  userID String 
+  userID                  String 
   recommendation_saved String
 }

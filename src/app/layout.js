@@ -12,7 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <link rel="icon" href="/img/logo_jalanku.svg" sizes="any" />
-      <body>{children}</body>
+      <body className="[&::-webkit-scrollbar]:w-2
+                [&::-webkit-scrollbar-track]:rounded-full
+              [&::-webkit-scrollbar-track]:bg-white
+                [&::-webkit-scrollbar-thumb]:rounded-full
+              [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]">{children}</body>
       {/* <Provider session={session}>
       </Provider> */}
       <GoogleAnalytics gaId="G-WXG3TWTM12" />

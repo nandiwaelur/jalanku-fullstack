@@ -1,5 +1,5 @@
 import Footer from "@/components/Footer";
-import NavigationBar from "@/components/NavigationBar";
+import NavigationBar from "@/components/Navigation/NavigationBar";
 export default function page() {
   return (
     <>
@@ -9,7 +9,7 @@ export default function page() {
           <div className="flex justify-center ">
             <NavigationBar />
           </div>
-          <div className="relative flex h-[80vh] content-center items-center justify-center pb-32 ">
+          <div className="relative flex h-[70vh] content-center items-center justify-center ">
             <div className="absolute top-0 h-96 w-full" />
             <div className="max-w-8xl container relative mx-auto">
               <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12 ">
@@ -34,10 +34,10 @@ export default function page() {
           <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white dark:bg-[#2F3645]">
             <div className="mt-10 text-center">
               <div className="font-extrabold text-6xl dark:text-white">
-                Jelajahi Destinasi{" "}
-                <span className="text-[#1EB47D]">Impianmu</span>
+                Jelajahi Destinasi 
+                <span className="text-[#1EB47D]"> Impianmu</span>
               </div>
-              <div className="my-2 font-extrabold text-xl dark:text-white mx-2">
+              <div className="my-5 font-extrabold text-xl dark:text-white">
                 Rekomendasi Wisata Personal dengan AI!
               </div>
             </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import LoginButton from "@/components/Navigation/LoginButton";
 import { auth } from "@/libs/auth";
-import ProfilePicture from "./ProfilePicture";
+import LoginButton from "@/components/Navigation/LoginButton";
+import ProfilePicture from "@/components/Navigation/ProfilePicture";
 
 export default async function NavigationBar() {
   const session = await auth();
@@ -14,7 +14,7 @@ export default async function NavigationBar() {
         >
           <div className="flex items-center justify-between">
             <Link
-              className="flex-none text-4xl font-extrabold text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+              className="flex-none text-4xl font-extrabold  dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
               href="/"
             >
               Jalanku.
@@ -66,26 +66,25 @@ export default async function NavigationBar() {
             className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block"
           >
             <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
-              {session && (
+              {session ? 
                 <>
                   <ProfilePicture session={session} />
                   <Link
-                    className="font-semibold text-xl text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+                    className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
                     href="/profile"
                   >
                     {session.user.name}
                   </Link>
                   <Link
-                    className="font-semibold text-xl text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
-                    href="/recommend"
+                    className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
+                    href="/recommends"
                   >
                     Rekomendasi
                   </Link>
                 </>
-              )}
-              {!session && <LoginButton />}
+              :<LoginButton /> }
               <Link
-                className="font-semibold text-xl text-white hover:bg-gradient-to-r hover:bg-clip-text hover:text-transparent hover:from-[#1EB47D] hover:to-[#34E0A1]"
+                className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
                 href="/about"
               >
                 About

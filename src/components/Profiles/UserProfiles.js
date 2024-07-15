@@ -2,7 +2,7 @@
 export default function UserProfiles({session}) {
   return (
     <>
-    <div className="lg:w-[50vh] lg:h-[80vh] bg-white dark:bg-[#2F3645] rounded-3xl ">
+    <div className="mx-5 mb-5 h-full lg:w-[50vh] lg:h-[80vh] dark:bg-white rounded-xl ">
               <div className="flex justify-center">
                 <div className="my-[10vh]">
                   <div className="w-96">
@@ -13,10 +13,10 @@ export default function UserProfiles({session}) {
                     />
                   </div>
                   <div className="text-center">
-                    <h4 className="text-xl mb-2 mt-2 font-bold dark:text-white">
+                    <h4 className="text-xl mb-2 mt-2 font-bold text-white dark:text-black">
                       {session?.user.name}
                     </h4>
-                    <h4 className="text-sm dark:text-white mb-10 ">
+                    <h4 className="text-sm text-white dark:text-black mb-10 ">
                       {session?.user.email}
                     </h4>
                   </div>

@@ -10,8 +10,8 @@ export default async function Recommend() {
   // }
   return (
     <>
-    <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
-        <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
+    <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top">
+        <div className="flex justify-center bg-white dark:bg-[#2F3645] ">
           <NavigationBar />
         </div>
         <div className="w-full h-screen flex justify-center  bg-white dark:bg-[#2F3645] lg:bg-transparent dark:lg:bg-transparent ">

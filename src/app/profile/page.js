@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import prisma from "@/libs/db";
 import SavedRecommendations from "@/components/Profiles/SavedRecommendations";
 import UserProfiles from "@/components/Profiles/UserProfiles";
+import Configuration from "@/components/Profiles/Configuration";
 
 export default async function Profile() {
   const session = await auth();
@@ -32,14 +33,15 @@ export default async function Profile() {
   });
   return (
     <>
-      <div className="bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
-        <div className="flex justify-center bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
+      <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top relative">
+        <div className="flex justify-center bg-white dark:bg-[#2F3645] bg-cover bg-center">
           <NavigationBar />
         </div>
         <div className="w-full h-full mb-5">
-          <div className="flex justify-center">
+          <div className="flex flex-col lg:flex-row justify-center">
             <UserProfiles session={session} />
-            <SavedRecommendations rekomendasiData={rekomendasiData}/>
+            <SavedRecommendations rekomendasiData={rekomendasiData} />
+            <Configuration/>
           </div>
         </div>
         <Footer />

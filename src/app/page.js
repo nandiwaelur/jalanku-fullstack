@@ -1,18 +1,19 @@
-import Footer from "@/components/Footer";
 import NavigationBar from "@/components/Navigation/NavigationBar";
+import Footer from "@/components/Footer";
+
 export default function page() {
   return (
     <>
     <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32 -mb-32">
     <div className="absolute top-0 h-full w-full bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
-        <div className="bg-gradient-to-b from-[#0D8292]/60 to-transparent bg-cover bg-center">
+        <div className="bg-gradient-to-b from-[#2F3645]/40 to-transparent bg-cover bg-center">
           <div className="flex justify-center ">
             <NavigationBar />
           </div>
           <div className="relative flex h-[70vh] content-center items-center justify-center ">
             <div className="absolute top-0 h-96 w-full" />
             <div className="max-w-8xl container relative mx-auto">
-              <div className="ml-auto mr-auto w-full px-4 text-center lg:w-8/12 ">
+              <div className="ml-auto mr-auto w-full px-4  text-center lg:w-8/12 ">
                 <h1
                   variant="h1"
                   color="white"
@@ -30,7 +31,7 @@ export default function page() {
           </div>
         </div>
         {/*  */}
-        <div className="bg-transparent">
+        <div className="bg-transparent ">
           <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white dark:bg-[#2F3645]">
             <div className="mt-10 text-center">
               <div className="font-extrabold text-6xl dark:text-white">

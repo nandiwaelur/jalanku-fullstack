@@ -3,7 +3,7 @@ import React from "react";
 export default function SavedRecommendations({ rekomendasiData }) {
   return (
     <>
-      <div className="lg:w-[120vh] lg:h-[80vh] bg-white dark:bg-[#2F3645] rounded-xl ml-5">
+      <div className="mx-5 mb-5 h-full lg:w-[50vh] lg:h-[80vh] dark:bg-white rounded-xl " >
         <div
           className="overflow-y-auto mt-10 w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
                 [&::-webkit-scrollbar-track]:rounded-full
@@ -11,16 +11,16 @@ export default function SavedRecommendations({ rekomendasiData }) {
                 [&::-webkit-scrollbar-thumb]:rounded-full
               [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
         >
-          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10 ">
+          <div className="flex flex-wrap justify-center">
             {rekomendasiData.map((rekomendasi, index) => (
               <div key={index}>
-                <div className="bg-white rounded-2xl min-h-[220vh]">
                   <h1 className="text-left mx-4 ">{index + 1}</h1>
                   {rekomendasi.recommendations.map(
                     (recommendation, recIndex) => (
+                      <div className="flex justify-center m-5" key={recIndex}>
                       <div
-                        className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[50vh] h-[40vh] lg:h-[30vh] mx-2 mt-2 "
-                        key={recIndex}
+                        className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 lg:w-[40vh] h-[40vh] lg:h-[30vh] "
+                        
                       >
                         <img
                           src={recommendation?.image}
@@ -41,10 +41,11 @@ export default function SavedRecommendations({ rekomendasiData }) {
                           Tiket Masuk: Rp.{recommendation?.price}
                         </div>
                       </div>
+                      </div>
+                     
                     )
                   )}
                 </div>
-              </div>
             ))}
           </div>
         </div>

@@ -7,7 +7,7 @@ export default function loading() {
           role="status"
           aria-label="loading"
         >
-          <span className="sr-only text-black text-9xl">Memuat...</span>
+         
         </div>
       </div>
     </>

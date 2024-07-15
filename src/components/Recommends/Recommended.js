@@ -51,7 +51,7 @@ export default function Recommended({ session }) {
                 }
               }}
               onChange={(e) => setRekomendasi(e.target.value)}
-              className="w-[45vh] lg:w-[80vh] p-4  bg-white dark:bg-[#2F3645] dark:text-white dark:placeholder:text-white py-3 px-4 shadow-sm rounded-s-lg text-sm outline-none"
+              className="w-[45vh] lg:w-[80vh] p-4  dark:bg-white bg-[#2F3645] dark:text-black dark:placeholder:text-black py-3 px-4 shadow-sm rounded-s-lg text-sm outline-none"
               placeholder="Mau kemana hari ini?"
               required
             />
@@ -59,7 +59,7 @@ export default function Recommended({ session }) {
               <button
                 type="button"
                 onClick={kirimRekomendasi}
-                className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold  border border-transparent bg-[#1EB47D] text-white disabled:opacity-50 disabled:pointer-events-none hs-tooltip-toggle border-r-white border-l-white dark:border-[#2F3645] "
+                className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold  border border-transparent bg-[#1EB47D]  disabled:opacity-50 disabled:pointer-events-none hs-tooltip-toggle dark:border-white dark:border-l-white "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function Recommended({ session }) {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="size-6 dark:stroke-[#2F3645]"
+                  className="size-6 stroke-[#2F3645] dark:stroke-white"
                 >
                   <path
                     strokeLinecap="round"
@@ -86,7 +86,7 @@ export default function Recommended({ session }) {
             <button
               type="button"
               onClick={simpanRekomendasi}
-              className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-[#1EB47D] text-white disabled:opacity-50 disabled:pointer-events-none dark:border-[#2F3645] "
+              className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-[#1EB47D] text-white disabled:opacity-50 disabled:pointer-events-none dark:border-l-transparent dark:border-white  "
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ export default function Recommended({ session }) {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-6 dark:stroke-[#2F3645]"
+                className="size-6 dark:stroke-white stroke-[#2F3645]"
               >
                 <path
                   strokeLinecap="round"

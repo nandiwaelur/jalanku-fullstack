@@ -1,5 +1,4 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
-import PrelineScript from "@/components/PrelineScript";
 import "./globals.css";
 export const metadata = {
   title: "Jalanku",
@@ -8,19 +7,19 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  // const session = await auth();
   return (
     <html lang="en">
       <link rel="icon" href="/img/logo_jalanku.svg" sizes="any" />
-      <body className="[&::-webkit-scrollbar]:w-2
+      <body
+        className="[&::-webkit-scrollbar]:w-2
                 [&::-webkit-scrollbar-track]:rounded-full
               [&::-webkit-scrollbar-track]:bg-white
                 [&::-webkit-scrollbar-thumb]:rounded-full
-              [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]">{children}</body>
-      {/* <Provider session={session}>
-      </Provider> */}
+              [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
+      >
+        {children}
+      </body>
       <GoogleAnalytics gaId="G-WXG3TWTM12" />
-      <PrelineScript />
     </html>
   );
 }

@@ -24,9 +24,7 @@ export const POST = auth (async function POST(request) {
 }
 )
 export async function GET() {
-  //get all posts
   const recommendation = await prisma.recommendationData.findMany()
-  //return response JSON
   return NextResponse.json(
     {
       sucess: true,

@@ -1,6 +1,25 @@
-import React from "react";
+import prisma from "@/libs/db";
+export default async function SavedRecommendations({ session }) {
 
-export default function SavedRecommendations({ rekomendasiData }) {
+  const recommendation = await prisma.recommendationData.findMany({
+    where: {
+      userID: session?.user.id,
+    },
+  });
+  const rekomendasiData = recommendation.map((rekomendasi) => {
+    const recommendationsArray = Object.values(
+      JSON.parse(rekomendasi.recommendation_saved)
+    );
+    return {
+      recommendations: recommendationsArray.map((rekomendasi) => ({
+        destinationName: rekomendasi.destination_name,
+        category: rekomendasi.category,
+        image: rekomendasi.image,
+        price: rekomendasi.price,
+        rating: rekomendasi.rating,
+      })),
+    };
+  });
   return (
     <>
       <div className="mx-5 mb-5 h-full lg:w-[50vh] lg:h-[80vh] dark:bg-white rounded-xl " >
@@ -12,10 +31,10 @@ export default function SavedRecommendations({ rekomendasiData }) {
               [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
         >
           <div className="flex flex-wrap justify-center">
-            {rekomendasiData.map((rekomendasi, index) => (
+            {rekomendasiData?.map((rekomendasi, index) => (
               <div key={index}>
                   <h1 className="text-left mx-4 ">{index + 1}</h1>
-                  {rekomendasi.recommendations.map(
+                  {rekomendasi?.recommendations.map(
                     (recommendation, recIndex) => (
                       <div className="flex justify-center m-5" key={recIndex}>
                       <div
@@ -42,11 +61,10 @@ export default function SavedRecommendations({ rekomendasiData }) {
                         </div>
                       </div>
                       </div>
-                     
                     )
                   )}
                 </div>
-            ))}
+            ))} 
           </div>
         </div>
       </div>

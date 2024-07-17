@@ -23,7 +23,6 @@ export default function UserProfiles({session}) {
                 </div>
               </div>
             </div>
-    
     </>
   )
 }

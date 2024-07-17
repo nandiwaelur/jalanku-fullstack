@@ -2,7 +2,13 @@ import Link from "next/link";
 import { auth } from "@/libs/auth";
 import LoginButton from "@/components/Navigation/LoginButton";
 import ProfilePicture from "@/components/Navigation/ProfilePicture";
-
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/shadcn/ui/sheet";
+import { Button } from "@/components/shadcn/ui/button";
+import { Menu, } from "lucide-react";
 export default async function NavigationBar() {
   const session = await auth();
   return (
@@ -20,45 +26,39 @@ export default async function NavigationBar() {
               Jalanku.
             </Link>
             <div className="sm:hidden">
-              <button
-                type="button"
-                className="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-x-2 rounded-lg border-none  bg-white  shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10"
-                data-hs-collapse="#navbar-with-mega-menu"
-                aria-controls="navbar-with-mega-menu"
-                aria-label="Toggle navigation"
+            <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                size="icon"
+                className="shrink-0 md:hidden h-8 w-8"
               >
-                <svg
-                  className="hs-collapse-open:hidden flex-shrink-0 size-10"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <Menu className="size-10" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="top"  className="bg-white">
+              <nav className="grid gap-6 text-lg font-medium">
+                <Link
+                  href="/"
+                  className="flex items-center gap-2 text-lg font-semibold"
                 >
-                  <line x1="3" x2="21" y1="6" y2="6" />
-                  <line x1="3" x2="21" y1="12" y2="12" />
-                  <line x1="3" x2="21" y1="18" y2="18" />
-                </svg>
-                <svg
-                  className="hs-collapse-open:block hidden flex-shrink-0 size-10"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                    Jalanku
+                </Link>
+                <Link
+                  href="/recommends"
+                  className="text-muted-foreground hover:text-foreground"
                 >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
+                  Rekomendasi
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-muted-foreground hover:text-foreground"
+                >
+                  About
+                </Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
             </div>
           </div>
           <div

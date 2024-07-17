@@ -1,24 +1,47 @@
-import LogoutButton from "@/components/Navigation/LogoutButton";
+"use client";
+import { signOut } from "next-auth/react";
+import { Button } from "@/components/shadcn/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/shadcn/ui/dropdown-menu";
+import Link from "next/link";
 export default function ProfilePicture({ session }) {
   return (
     <>
-      <div className="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] ">
-        <div className="flex items-center w-full ">
-          <button
-            id="hs-mega-menu-basic-dr"
-            type="button"
-            className="items-center"
-          >
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <div variant="secondary" size="icon" className="rounded-full">
             <img
-              src={session?.user.image}
-              className="inline-block size-[46px] rounded-full"
+              src={session.user.image}
+              className="inline-block size-10 rounded-full"
             />
-          </button>
-        </div>
-        <div className="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-30 z-10 bg-white sm:shadow-md rounded-lg p-2  before:absolute top-full sm:border before:-top-5 before:start-0 before:w-full before:h-5 hidden">
-          <LogoutButton />
-        </div>
-      </div>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start" className="bg-white dark:bg-[#2F3645]">
+          <DropdownMenuLabel>
+            {" "}
+            <Link
+              className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
+              href="/profile"
+            >
+              Profile
+            </Link>
+          </DropdownMenuLabel>
+          <DropdownMenuItem>
+            {" "}
+            <btn
+              className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
+              onClick={() => signOut("google")}
+            >
+              Keluar
+            </btn>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </>
   );
 }

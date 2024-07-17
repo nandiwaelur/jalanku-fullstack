@@ -7,12 +7,12 @@ const ShowRecommend = ({dataRekomendasi}) => {
           [&::-webkit-scrollbar-thumb]:rounded-full
         [&::-webkit-scrollbar-thumb]:bg-transparent"
         >
-          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10  lg:mt-5 lg:mb-0  mb-[20vh]">
+          <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10  lg:mt-5 lg:mb-0  mb-[15vh] mx-8">
           {Object.keys(dataRekomendasi).map((key, index) => {
               const recommendation = dataRekomendasi[key];
               return (
                 <div
-                  className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 w-[60vh] lg:w-[50vh] h-screen lg:h-[30vh] mt-2"
+                  className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8  lg:w-[50vh] h-[30vh] lg:h-[30vh] mt-2"
                   key={index}
                 >
                   <img

@@ -53,13 +53,13 @@ export default function Recommended({ session }) {
       try {
         await axios.post("/api/recommends", data);
         toast({
-          className: "bg-[#2F3645] text-white",
+          className: "bg-[#2F3645] dark:bg-white  text-white dark:text-black",
           title: "Rekomendasi berhasil disimpan",
         });
       } catch (error) {
         toast({
           variant: "destructive",
-          className: "bg-[#2F3645]",
+          className: "bg-[#2F3645] dark:bg-white  text-white dark:text-black",
           title: "Rekomendasi tidak berhasil disimpan!",
         });
       }
@@ -68,8 +68,8 @@ export default function Recommended({ session }) {
   return (
     <>
       <div className="lg:w-screen lg:h-screen ">
-        <div className="flex justify-center gap-2 mt-10 ">
-          <div className="flex rounded-lg shadow-sm">
+        <div className="flex justify-center gap-2 mt-10  ">
+          <div className="flex rounded-lg shadow-sm ">
             <input
               type="text"
               onKeyDown={(e) => {
@@ -78,7 +78,7 @@ export default function Recommended({ session }) {
                 }
               }}
               onChange={(e) => setRekomendasi(e.target.value)}
-              className="w-[45vh] lg:w-[80vh] p-4  dark:bg-white bg-[#2F3645] dark:text-black dark:placeholder:text-black py-3 px-4 shadow-sm rounded-s-lg text-sm outline-none"
+              className="min-w-[30vh] lg:w-[80vh] p-4  dark:bg-white bg-[#2F3645] dark:text-black dark:placeholder:text-black py-3 px-4 shadow-sm rounded-s-lg text-sm outline-none"
               placeholder="Mau kemana hari ini?"
               required
             />
@@ -98,7 +98,6 @@ export default function Recommended({ session }) {
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
-
             <TooltipProvider>
               <Tooltip >
                 <TooltipTrigger asChild>

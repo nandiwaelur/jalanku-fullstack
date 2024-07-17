@@ -4,7 +4,6 @@ import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
 import SavedRecommendations from "@/components/Profiles/SavedRecommendations";
 import UserProfiles from "@/components/Profiles/UserProfiles";
-import Configuration from "@/components/Profiles/Configuration";
 export default async function Profile() {
   const session = await auth();
   if (!session) {
@@ -20,7 +19,7 @@ export default async function Profile() {
           <div className="flex flex-col lg:flex-row justify-center">
             <UserProfiles session={session} />
             <SavedRecommendations rekomendasiData={session} />
-            <Configuration/>
+            
           </div>
         </div>
         <Footer />

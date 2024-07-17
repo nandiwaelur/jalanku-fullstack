@@ -1,6 +1,3 @@
-"use client";
-import { signOut } from "next-auth/react";
-import { Button } from "@/components/shadcn/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +6,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn/ui/dropdown-menu";
 import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 export default function ProfilePicture({ session }) {
   return (
     <>
@@ -21,7 +19,7 @@ export default function ProfilePicture({ session }) {
             />
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="bg-white dark:bg-[#2F3645]">
+        <DropdownMenuContent align="start" className=" bg-white dark:bg-[#2F3645] border-none">
           <DropdownMenuLabel>
             {" "}
             <Link
@@ -33,12 +31,7 @@ export default function ProfilePicture({ session }) {
           </DropdownMenuLabel>
           <DropdownMenuItem>
             {" "}
-            <btn
-              className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
-              onClick={() => signOut("google")}
-            >
-              Keluar
-            </btn>
+          <LogoutButton/>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

@@ -23,16 +23,3 @@ export const POST = auth (async function POST(request) {
     return NextResponse.json({ message: "Not authenticated" }, { status: 401 })
 }
 )
-export async function GET() {
-  const recommendation = await prisma.recommendationData.findMany()
-  return NextResponse.json(
-    {
-      sucess: true,
-      message: "List Data Rekomendasi",
-      data: recommendation,
-    },
-    {
-      status: 200,
-    }
-  );
-}

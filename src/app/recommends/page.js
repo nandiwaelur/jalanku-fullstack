@@ -5,9 +5,9 @@ import { redirect } from "next/navigation";
 import Recommended from "@/components/Recommends/Recommended";
 export default async function Recommend() {
   const session = await auth();
-  // if (!session) {
-  //   redirect('/');
-  // }
+  if (!session) {
+    redirect('/');
+  }
   return (
     <>
     <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top">

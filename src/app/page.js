@@ -38,7 +38,7 @@ export default function page() {
                 Jelajahi Destinasi 
                 <span className="text-[#1EB47D]"> Impianmu</span>
               </div>
-              <div className="my-5 font-extrabold text-xl dark:text-white">
+              <div className="my-5 px-5 font-extrabold text-xl dark:text-white">
                 Rekomendasi Wisata Personal dengan AI!
               </div>
             </div>

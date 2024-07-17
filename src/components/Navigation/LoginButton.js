@@ -4,9 +4,7 @@ export default function LoginButton() {
   return (
     <>
       <button
-        size="lg"
-        id="hs-mega-menu-basic-dr" type="button"
-        className="flex items-center gap-3 bg-black p-3 rounded-lg"
+        className="flex h-full items-center gap-3 bg-black p-3 rounded-lg"
         onClick={() => signIn("google")}
       >
         <img

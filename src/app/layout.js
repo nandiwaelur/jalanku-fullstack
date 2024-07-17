@@ -1,5 +1,6 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
+import { Toaster } from "@/components/shadcn/ui/toaster";
 export const metadata = {
   title: "Jalanku",
   description:
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
               [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
       >
         {children}
+        <Toaster/>
       </body>
       <GoogleAnalytics gaId="G-WXG3TWTM12" />
     </html>

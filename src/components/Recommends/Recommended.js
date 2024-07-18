@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
 import axios from "axios";
 import ShowRecommend from "@/components/Recommends/ShowRecommend";
 import { useToast } from "@/components/shadcn/ui/use-toast";
+import { useState } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -10,6 +10,7 @@ import {
   TooltipTrigger,
 } from "@/components/shadcn/ui/tooltip";
 import { Bookmark, Search } from "lucide-react";
+import addRecommendation from "./add-recommendation";
 export default function Recommended({ session }) {
   const [rekomendasi, setRekomendasi] = useState("");
   const [dataRekomendasi, setDataRekomendasi] = useState([]);
@@ -51,7 +52,7 @@ export default function Recommended({ session }) {
       });
     } else {
       try {
-        await axios.post("/api/recommends", data);
+        addRecommendation(data);
         toast({
           className: "bg-[#2F3645] dark:bg-white  text-white dark:text-black",
           title: "Rekomendasi berhasil disimpan",
@@ -106,7 +107,7 @@ export default function Recommended({ session }) {
               onClick={simpanRekomendasi}
               className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-[#1EB47D] text-white disabled:opacity-50 disabled:pointer-events-none dark:border-l-transparent dark:border-white  "
             >
-             <Bookmark color="#ffffff" />
+            <Bookmark color="#ffffff" />
             </button>
                 </TooltipTrigger>
                 <TooltipContent className="bg-white">

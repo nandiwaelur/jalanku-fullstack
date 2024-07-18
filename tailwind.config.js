@@ -10,4 +10,7 @@ module.exports = {
     ["prettier-plugin-tailwindcss"],
     require("tailwindcss-animate"),
   ],
+  "tailwindCSS.experimental.classRegex": [
+    ["Variants \\=([^;]*);", "\"([^\"]*)\""]
+  ],
 };

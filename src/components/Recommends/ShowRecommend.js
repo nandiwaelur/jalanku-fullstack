@@ -2,9 +2,9 @@ const ShowRecommend = ({dataRekomendasi}) => {
   return (
     <>
     <div className="overflow-y-auto mt-2 lg:mt-10 w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
-          [&::-webkit-scrollbar-track]:rounded-full
+        [&::-webkit-scrollbar-track]:rounded-full
         [&::-webkit-scrollbar-track]:bg-transparent
-          [&::-webkit-scrollbar-thumb]:rounded-full
+        [&::-webkit-scrollbar-thumb]:rounded-full
         [&::-webkit-scrollbar-thumb]:bg-transparent"
         >
           <div className="flex flex-col lg:flex-row lg:flex-wrap justify-center gap-0 lg:gap-10  lg:mt-5 lg:mb-0  mb-[15vh] mx-8">

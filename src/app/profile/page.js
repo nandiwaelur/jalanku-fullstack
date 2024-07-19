@@ -12,7 +12,7 @@ export default async function Profile({ searchParams }) {
     redirect("/");
   }
   const page = parseInt(searchParams.page) || 1;
-  const pageSize = parseInt(searchParams.pageSize) || 6;
+  const pageSize = parseInt(searchParams.pageSize) || 3;
   const [recommendations, totalRecommendations] = await Promise.all([
     prisma.recommendationData.findMany({
       where: {

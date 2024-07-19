@@ -13,12 +13,21 @@ export default async function NavigationBar() {
           aria-label="Global"
         >
           <div className="flex items-center justify-between">
+          <div variant="secondary" size="icon" className="rounded-full">
+          <Link href="/profile">
+              <img
+              src={session.user.image}
+              className="inline-block size-10 rounded-full"
+            />
+              </Link>
+          </div>
             <Link
-              className="flex-none text-4xl font-extrabold  dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
+              className="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block flex-none text-4xl font-extrabold dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
               href="/"
             >
               Jalanku.
             </Link>
+            <Link href="/" className="md:hidden text-4xl font-extrabold dark:text-white">Jalanku.</Link>
             <DropDown session={session}/>
           </div>
           <div className="hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
@@ -26,28 +35,10 @@ export default async function NavigationBar() {
               {session ? (
                 <>
                   <ProfilePicture session={session} />
-                  <Link
-                    className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
-                    href="/profile"
-                  >
-                    {session.user.name}
-                  </Link>
-                  <Link
-                    className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
-                    href="/recommends"
-                  >
-                    Rekomendasi
-                  </Link>
                 </>
               ) : (
                 <LoginButton />
               )}
-              <Link
-                className="font-semibold text-xl dark:text-white dark:hover:bg-gradient-to-r  hover:text-[#34E0A1] dark:hover:bg-clip-text dark:hover:text-transparent dark:hover:from-[#1EB47D] dark:hover:to-[#34E0A1]"
-                href="/about"
-              >
-                About
-              </Link>
             </div>
           </div>
         </nav>

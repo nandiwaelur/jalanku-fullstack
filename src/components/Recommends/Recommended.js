@@ -70,7 +70,7 @@ export default function Recommended({ session }) {
     <>
       <div className="lg:w-screen lg:h-screen ">
         <div className="flex justify-center gap-2 mt-10  ">
-          <div className="flex rounded-lg shadow-sm ">
+          <div className="flex rounded-lg  shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
             <input
               type="text"
               onKeyDown={(e) => {

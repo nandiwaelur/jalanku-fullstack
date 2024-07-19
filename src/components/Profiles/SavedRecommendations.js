@@ -28,6 +28,7 @@ export default function SavedRecommendations({
   });
 
   async function deleteRecommendation(id) {
+
     const result = await deleteRecommendations(id);
     if (result?.error) {
       toast({
@@ -43,34 +44,34 @@ export default function SavedRecommendations({
     }
   }
   return (
-    <>
-      <div className="mx-5 mb-5 h-full lg:w-[150vh] lg:h-[80vh] dark:bg-white rounded-xl">
-        {rekomendasiData.length > 0 && (
+    <>{rekomendasiData.length > 0 && (
+      <div className="mx-5 mb-5 h-screen lg:w-[150vh] lg:h-[80vh] bg-[#2F3645] dark:bg-white rounded-xl shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
+        
           <>
             <PaginationButton
               page={page}
               pageSize={pageSize}
               totalPages={totalPages}
             />
-            <div className="h-[65vh] overflow-y-auto">
-              <div
-                className=" w-full h-full lg:h-[75vh] rounded-3xl [&::-webkit-scrollbar]:w-2
+            <div className=" h-[85vh] lg:h-[65vh] overflow-y-auto [&::-webkit-scrollbar]:w-2
                 [&::-webkit-scrollbar-track]:rounded-full
                 [&::-webkit-scrollbar-track]:bg-white
                 [&::-webkit-scrollbar-thumb]:rounded-full
-                [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]"
+                [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]">
+              <div
+                className="w-full h-full lg:h-[75vh] rounded-3xl"
               >
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-center ">
                   {rekomendasiData?.map((rekomendasi, index) => (
                     <div key={index}>
-                      <div className="flex justify-between text-white mx-5 p-5 bg-zinc-900 rounded-2xl">
+                      <div className="flex justify-between text-white mx-5 p-5 bg-zinc-900 rounded-2xl shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
                         <div className="rounded-lg px-3 bg-white">
                           <h1 className="text-black text-center py-1">
                             {index + 1}
                           </h1>
-                        </div>{" "}
+                        </div>
                         <button
-                          className="bg-white text-black rounded-full p-1 "
+                          className="bg-white text-black rounded-full p-1 hover:text-red-700"
                           onClick={() => deleteRecommendation(rekomendasi.id)}
                         >
                           <X />
@@ -79,10 +80,10 @@ export default function SavedRecommendations({
                       {rekomendasi?.recommendations.map(
                         (recommendation, recIndex) => (
                           <div
-                            className="flex justify-center m-5"
+                            className="flex justify-center m-5 "
                             key={recIndex}
                           >
-                            <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 w-full lg:w-[40vh] h-[40vh] lg:h-[30vh]">
+                            <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 w-full lg:w-[40vh] h-[40vh] lg:h-[30vh] shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
                               <img
                                 src={recommendation?.image}
                                 alt="Gambar Rekomendasi"
@@ -111,8 +112,8 @@ export default function SavedRecommendations({
               </div>
             </div>
           </>
+          </div>
         )}
-      </div>
     </>
   );
 }

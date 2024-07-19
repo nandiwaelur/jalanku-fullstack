@@ -16,23 +16,22 @@ export default function DropDown({ session }) {
         <Sheet>
           <SheetTrigger asChild>
             <Button size="icon" className="shrink-0 md:hidden size-10">
-              <Menu className="size-10" color="white" />
+              <Menu className="size-10 dark:text-white"  />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="top" className="bg-white border-none">
             <nav className="grid gap-6 text-lg font-medium">
-              <Link
-                href="/"
-                className="flex items-center text-lg font-extrabold  hover:text-[#1ea774]"
-              >
-                Jalanku
+            <div size="icon" className="rounded-full">
+              <Link href="/profile">
+              <img
+              src={session.user.image}
+              className="inline-block size-10 rounded-full"
+            />
               </Link>
+          </div>
               {session ? (
                 <>
-                  <Link href="/profile" className="hover:text-[#1ea774]">
-                    Profile
-                  </Link>
                   <Link href="/recommends" className="hover:text-[#1ea774]">
                     Rekomendasi
                   </Link>
@@ -51,7 +50,7 @@ export default function DropDown({ session }) {
                 href="/about"
                 className="hover:text-[#1ea774]"
               >
-                About
+                Tentang
               </Link>
             </nav>
           </SheetContent>

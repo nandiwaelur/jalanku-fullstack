@@ -12,7 +12,7 @@ export default async function Profile({ searchParams }) {
     redirect("/");
   }
   const page = parseInt(searchParams.page) || 1;
-  const pageSize = parseInt(searchParams.pageSize) || 5;
+  const pageSize = parseInt(searchParams.pageSize) || 6;
   const [recommendations, totalRecommendations] = await Promise.all([
     prisma.recommendationData.findMany({
       where: {
@@ -27,7 +27,7 @@ export default async function Profile({ searchParams }) {
       },
     }),
   ]);
-  const totalPages = Math.floor(totalRecommendations / pageSize);
+  const totalPages = Math.ceil(totalRecommendations / pageSize);
   return (
     <>
       <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top relative">
@@ -35,7 +35,7 @@ export default async function Profile({ searchParams }) {
           <NavigationBar />
         </div>
         <div className="w-full h-full mb-5">
-          <div className="flex flex-col lg:flex-row justify-center">
+          <div className="flex flex-col mt-5 mb-5 lg:flex-row justify-center">
             <UserProfiles session={session} />
             <SavedRecommendations
               recommendations={recommendations}

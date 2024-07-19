@@ -33,15 +33,15 @@ export default function page() {
         </div>
         {/*  */}
         <main>
-        <div className="bg-transparent ">
+        <div className="bg-transparent mt-[18vh] lg:mt-0 ">
           <section className="rounded-t-3xl shadow-2xl h-full shadow-gray-500/0 py-11 bg-white dark:bg-[#2F3645]">
-            <div className="mt-10 text-center">
+            <div className="mt-5 text-center">
               <div className="font-extrabold text-6xl dark:text-white">
                 Jelajahi Destinasi 
                 <span className="text-[#1EB47D]"> Impianmu</span>
               </div>
               <div className="my-5 px-5 font-extrabold text-xl dark:text-white">
-                Rekomendasi Wisata Personal dengan AI!
+                Rekomendasi Wisata Personal dengan Keerdasan Buatan!
               </div>
             </div>
             <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-10 p-5">
@@ -50,8 +50,8 @@ export default function page() {
           </section>
         </div>
         <div className="bg-white dark:bg-[#2F3645] w-full h-full">
+          <h1 className="dark:text-white text-center text-6xl font-extrabold">Kenapa Memilih Jalanku?</h1>
          <FeatureJalanku/>
-
         </div>
         </main>
         <Footer />

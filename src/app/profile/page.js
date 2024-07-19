@@ -32,7 +32,7 @@ export default async function Profile({ searchParams }) {
     <>
       <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top relative">
         <div className="flex justify-center bg-white dark:bg-[#2F3645] bg-cover bg-center">
-          <NavigationBar session={session} />
+          <NavigationBar  />
         </div>
         <div className="w-full h-full mb-5">
           <div className="flex flex-col mt-5 mb-5 lg:flex-row justify-center">

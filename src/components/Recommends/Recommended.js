@@ -89,9 +89,9 @@ export default function Recommended({ session }) {
                   <button
                     type="button"
                     onClick={kirimRekomendasi}
-                    className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold  border border-transparent bg-[#1EB47D]  disabled:opacity-50 disabled:pointer-events-none dark:border-white dark:border-l-white"
+                    className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold  border border-transparent bg-[#1EB47D]  text-white active:text-black dark:border-white dark:border-l-white"
                   >
-                    <Search color="#ffffff" />
+                    <Search />
                   </button>
                 </TooltipTrigger>
                 <TooltipContent className="bg-white">
@@ -105,9 +105,9 @@ export default function Recommended({ session }) {
                 <button
               type="button"
               onClick={simpanRekomendasi}
-              className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-[#1EB47D] text-white disabled:opacity-50 disabled:pointer-events-none dark:border-l-transparent dark:border-white  "
+              className="w-[2.875rem] h-[2.875rem] flex-shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-[#1EB47D] text-white active:text-black disabled:opacity-50 disabled:pointer-events-none dark:border-l-transparent dark:border-white  "
             >
-            <Bookmark color="#ffffff" />
+            <Bookmark  />
             </button>
                 </TooltipTrigger>
                 <TooltipContent className="bg-white">

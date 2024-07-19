@@ -41,7 +41,7 @@ export default function page() {
                 <span className="text-[#1EB47D]"> Impianmu</span>
               </div>
               <div className="my-5 px-5 font-extrabold text-xl dark:text-white">
-                Rekomendasi Wisata Personal dengan Keerdasan Buatan!
+                Rekomendasi Wisata Personal dengan Kecerdasan Buatan!
               </div>
             </div>
             <div className="flex flex-col lg:flex-row flex-wrap justify-center gap-10 p-5">

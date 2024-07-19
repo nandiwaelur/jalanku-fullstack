@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import { auth } from "@/libs/auth";
 import prisma from "@/libs/db";
 import { redirect } from "next/navigation";
-
 export default async function Profile({ searchParams }) {
   const session = await auth();
   if (!session) {
@@ -35,7 +34,7 @@ export default async function Profile({ searchParams }) {
           <NavigationBar />
         </div>
         <div className="w-full h-full mb-5">
-          <div className="flex flex-col mt-5 mb-5 lg:flex-row justify-center">
+          <div className="flex md:flex-col flex-col-reverse mt-5 mb-5 lg:flex-row justify-center">
             <UserProfiles session={session} />
             <SavedRecommendations
               recommendations={recommendations}

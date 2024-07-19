@@ -11,7 +11,7 @@ export default async function page() {
     <div className="absolute top-0 h-full w-full bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
         <div className="bg-gradient-to-b from-[#2F3645]/40 to-transparent bg-cover bg-center">
           <div className="flex justify-center ">
-            <NavigationBar  />
+            <NavigationBar session={session}  />
           </div>
           <div className="relative flex h-[70vh] content-center items-center justify-center ">
             <div className="absolute top-0 h-96 w-full" />

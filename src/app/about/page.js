@@ -7,7 +7,7 @@ export default async function About() {
     <>
       <div className="bg-white bg-cover bg-top relative">
       <div className="flex justify-center bg-white dark:bg-[#2F3645] bg-cover bg-center">
-      <NavigationBar/>
+      <NavigationBar session={session}/>
         </div>
         <div className="w-full h-screen bg-white dark:bg-[#2F3645] flex justify-center ">
        

@@ -1,7 +1,8 @@
+"use client"
 export default function UserProfiles({ session }) {
   return (
     <>
-      <div className="mx-5 mb-5 md:mb-0 h-[80vh] lg:w-[50vh] lg:h-[80vh] bg-[#2F3645] dark:bg-white rounded-xl shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)] ">
+      <div className="mx-5 mb-5 md:mb-0 h-[90vh] lg:w-[50vh] lg:h-[80vh] bg-[#2F3645] dark:bg-white rounded-xl shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)] ">
         <div className="flex justify-center">
           <div className="my-[10vh]">
             <div className="w-96">
@@ -19,7 +20,9 @@ export default function UserProfiles({ session }) {
               </div>
             </div>
           </div>
+          
         </div>
+
       </div>
     </>
   );

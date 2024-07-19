@@ -2,7 +2,7 @@ import { Sparkles,Banknote,CheckCheckIcon,Map } from "lucide-react";
 export default function Service() {
   return (
     <>
-      <div className="max-w-[100rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+      <div className="max-w-[100rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-10">
           <div className="h-[15rem] flex flex-col justify-center bg-[#2F3645] dark:bg-white  rounded-xl p-4 md:p-7 shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
             <div className="flex justify-center items-center size-12 bg-[#34E0A1] rounded-xl">

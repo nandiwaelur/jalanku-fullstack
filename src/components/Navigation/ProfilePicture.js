@@ -10,7 +10,7 @@ import LogoutButton from "./LogoutButton";
 export default function ProfilePicture({ session }) {
   return (
     <>
-      <DropdownMenu >
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div size="icon" className="rounded-full">
             <img

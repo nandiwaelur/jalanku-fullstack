@@ -1,5 +1,12 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-export default function PaginationButton({ page, pageSize,totalPages}) {
+import { useEffect } from "react";
+export default function PaginationButton({ page, pageSize,totalPages,recommendations}) {
+  console.log(recommendations)
+  useEffect(() => {
+    if (recommendations.length === 0 && page > 1) {
+      window.location.href = `?page=${page - 1}&pageSize=${pageSize}`;
+    }
+  }, [recommendations, page, pageSize]);
   return (
     <>
       <div className="flex justify-center my-4 ">

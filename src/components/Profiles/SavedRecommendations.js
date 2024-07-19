@@ -9,6 +9,7 @@ export default function SavedRecommendations({
   page,
   pageSize,
   totalPages,
+  totalRecommendations,
 }) {
   const { toast } = useToast();
   const rekomendasiData = recommendations.map((rekomendasi) => {
@@ -26,9 +27,7 @@ export default function SavedRecommendations({
       })),
     };
   });
-
   async function deleteRecommendation(id) {
-
     const result = await deleteRecommendations(id);
     if (result?.error) {
       toast({
@@ -44,14 +43,14 @@ export default function SavedRecommendations({
     }
   }
   return (
-    <>{rekomendasiData.length > 0 && (
+    <>{totalRecommendations > 0 && (
       <div className="mx-5 mb-5 h-screen lg:w-[150vh] lg:h-[80vh] bg-[#2F3645] dark:bg-white rounded-xl shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
-        
           <>
-            <PaginationButton
+          <PaginationButton
               page={page}
               pageSize={pageSize}
               totalPages={totalPages}
+              recommendations={recommendations}
             />
             <div className=" h-[85vh] lg:h-[65vh] overflow-y-auto [&::-webkit-scrollbar]:w-2
                 [&::-webkit-scrollbar-track]:rounded-full

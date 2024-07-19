@@ -1,3 +1,4 @@
+"use client"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +14,7 @@ export default function ProfilePicture({ session }) {
         <DropdownMenuTrigger asChild>
           <div size="icon" className="rounded-full">
             <img
-              src={session.user.image}
+              src={session?.user?.image || "/img/default-avatar.png"}
               className="inline-block size-10 rounded-full"
             />
           </div>

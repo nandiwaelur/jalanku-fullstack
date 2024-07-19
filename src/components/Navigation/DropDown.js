@@ -16,26 +16,29 @@ export default function DropDown({ session }) {
         <Sheet>
           <SheetTrigger asChild>
             <Button size="icon" className="shrink-0 md:hidden size-10">
-              <Menu className="size-10 dark:text-white"  />
+              <Menu className="size-10 dark:text-white" />
               <span className="sr-only">Toggle navigation menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="top" className="bg-white border-none">
             <nav className="grid gap-6 text-lg font-medium">
-            <div size="icon" className="rounded-full">
-              <Link href="/profile">
-              <img
-              src={session?.user.image}
-              className="inline-block size-10 rounded-full"
-            />
-              </Link>
-          </div>
+              <div size="icon" className="rounded-full">
+                <Link href="/profile">
+                  <img
+                    src={session?.user?.image || "/img/default-avatar.png"}
+                    className="inline-block size-10 rounded-full"
+                  />
+                </Link>
+              </div>
               {session ? (
                 <>
                   <Link href="/recommends" className="hover:text-[#1ea774]">
                     Rekomendasi
                   </Link>
-                  <btn className="hover:text-[#1ea774]" onClick={() => signOut("google")}>
+                  <btn
+                    className="hover:text-[#1ea774]"
+                    onClick={() => signOut("google")}
+                  >
                     Keluar
                   </btn>
                 </>
@@ -46,10 +49,7 @@ export default function DropDown({ session }) {
                   </div>
                 </>
               )}
-              <Link
-                href="/about"
-                className="hover:text-[#1ea774]"
-              >
+              <Link href="/about" className="hover:text-[#1ea774]">
                 Tentang
               </Link>
             </nav>

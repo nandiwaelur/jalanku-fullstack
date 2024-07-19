@@ -25,7 +25,7 @@ export default function DropDown({ session }) {
             <div size="icon" className="rounded-full">
               <Link href="/profile">
               <img
-              src={session.user.image}
+              src={session?.user.image}
               className="inline-block size-10 rounded-full"
             />
               </Link>

@@ -12,7 +12,7 @@ export default async function Recommend() {
     <>
     <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top">
         <div className="flex justify-center bg-white dark:bg-[#2F3645] ">
-          <NavigationBar />
+          <NavigationBar session={session} />
         </div>
         <div className="w-full h-screen flex justify-center  bg-white dark:bg-[#2F3645] lg:bg-transparent dark:lg:bg-transparent ">
           <Recommended session={session}/>

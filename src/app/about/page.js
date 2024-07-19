@@ -1,7 +1,8 @@
 import NavigationBar from "@/components/Navigation/NavigationBar";
 import Footer from "@/components/Footer";
-
-export default function About() {
+import { auth } from "@/libs/auth";
+export default async function About() {
+  const session = await auth();
   return (
     <>
       <div className="bg-white bg-cover bg-top relative">

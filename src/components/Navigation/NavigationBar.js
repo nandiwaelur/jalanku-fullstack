@@ -1,10 +1,9 @@
+"use client"
 import Link from "next/link";
-import { auth } from "@/libs/auth";
 import ProfilePicture from "@/components/Navigation/ProfilePicture";
 import LoginButton from "@/components/Navigation/LoginButton";
 import DropDown from "./DropDown";
-export default async function NavigationBar() {
-  const session = await auth();
+export default function NavigationBar({session}) {
   return (
     <>
       <header className="relative bg-transparent flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm py-4 ">
@@ -16,7 +15,7 @@ export default async function NavigationBar() {
           <div variant="secondary" size="icon" className="rounded-full">
           <Link href="/profile">
               <img
-              src={session.user.image}
+              src={session?.user.image}
               className="inline-block size-10 rounded-full"
             />
               </Link>

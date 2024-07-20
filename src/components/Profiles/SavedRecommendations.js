@@ -1,15 +1,19 @@
 "use client";
-import { X } from "lucide-react";
+import { X,Info } from "lucide-react";
 import { useToast } from "@/components/shadcn/ui/use-toast";
-import deleteRecommendations from "./delete-recommendations";
-import PaginationButton from "./PaginationButton";
+import { deleteRecommendations } from "@/server/actions";
+import PaginationButton from "@/components/Profiles/PaginationButton";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/shadcn/ui/tooltip";
-
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/shadcn/ui/popover";
 export default function SavedRecommendations({
   recommendations,
   page,
@@ -34,7 +38,6 @@ export default function SavedRecommendations({
       })),
     };
   });
-
   async function deleteRecommendation(id) {
     const result = await deleteRecommendations(id);
     if (result?.error) {
@@ -50,7 +53,6 @@ export default function SavedRecommendations({
       });
     }
   }
-
   return (
     <>
       {totalRecommendations > 0 && (
@@ -85,6 +87,7 @@ export default function SavedRecommendations({
                       {rekomendasi?.recommendations.map(
                         (recommendation, recIndex) => (
                           <div key={`${rekomendasi.id}-${recIndex}`}>
+                            <Popover>
                             <TooltipProvider>
                               <Tooltip>
                                 <TooltipTrigger asChild>
@@ -99,6 +102,17 @@ export default function SavedRecommendations({
                                       <h3 className="z-10 mt-3 text-3xl font-bold text-white ">
                                         {recommendation?.destinationName}
                                       </h3>
+                                      <PopoverTrigger>
+                                      <div className="lg:hidden absolute top-0 right-0 m-5 size-8 bg-[#34E0A1] text-black rounded-full p-1 hover:text-gray-600">
+                                      <Info/>
+                                      </div>
+                                      </PopoverTrigger>
+                                      <PopoverContent className="bg-white w-[40vh] h-[20vh] p-1 overflow-y-auto [&::-webkit-scrollbar]:w-2
+                                  [&::-webkit-scrollbar-track]:rounded-full
+                                [&::-webkit-scrollbar-track]:bg-white
+                                  [&::-webkit-scrollbar-thumb]:rounded-full
+                                [&::-webkit-scrollbar-thumb]:bg-[#1EB47D]" align="end"  side="top"
+                                  >{recommendation.description}</PopoverContent>
                                       <div className="z-10 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                                         Kategori: {recommendation?.category}
                                       </div>
@@ -112,7 +126,7 @@ export default function SavedRecommendations({
                                   </div>
                                 </TooltipTrigger>
                                 <TooltipContent
-                                  className="bg-white w-[30vh] h-[20vh] absolute overflow-y-auto [&::-webkit-scrollbar]:w-2
+                                  className="hidden md:block bg-white w-[30vh] h-[20vh] absolute overflow-y-auto [&::-webkit-scrollbar]:w-2
                                   [&::-webkit-scrollbar-track]:rounded-full
                                 [&::-webkit-scrollbar-track]:bg-white
                                   [&::-webkit-scrollbar-thumb]:rounded-full
@@ -123,6 +137,7 @@ export default function SavedRecommendations({
                                 </TooltipContent>
                               </Tooltip>
                             </TooltipProvider>
+                            </Popover>
                           </div>
                         )
                       )}

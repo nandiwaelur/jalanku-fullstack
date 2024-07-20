@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import ShowRecommend from "@/components/Recommends/ShowRecommend";
+import ListRecommend from "@/components/Recommends/ListRecommend";
 import { useToast } from "@/components/shadcn/ui/use-toast";
 import { useState } from "react";
 import {
@@ -10,8 +10,9 @@ import {
   TooltipTrigger,
 } from "@/components/shadcn/ui/tooltip";
 import { Bookmark, Search } from "lucide-react";
-import addRecommendation from "./add-recommendation";
-export default function Recommended({ session }) {
+import { addRecommendation } from "@/server/actions";
+addRecommendation
+export default function getRecommends({ session }) {
   const [rekomendasi, setRekomendasi] = useState("");
   const [dataRekomendasi, setDataRekomendasi] = useState([]);
   const { toast } = useToast();
@@ -73,6 +74,7 @@ export default function Recommended({ session }) {
           <div className="flex rounded-lg  shadow-[10px_10px_5px_0px_rgba(0,0,0,0.75)]">
             <input
               type="text"
+              content={rekomendasi}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   kirimRekomendasi();
@@ -83,6 +85,7 @@ export default function Recommended({ session }) {
               placeholder="Mau kemana hari ini?"
               required
             />
+            
             <TooltipProvider>
               <Tooltip >
                 <TooltipTrigger asChild>
@@ -117,7 +120,7 @@ export default function Recommended({ session }) {
             </TooltipProvider>
           </div>
         </div>
-        <ShowRecommend dataRekomendasi={dataRekomendasi} />
+        <ListRecommend dataRekomendasi={dataRekomendasi}/>
       </div>
     </>
   );

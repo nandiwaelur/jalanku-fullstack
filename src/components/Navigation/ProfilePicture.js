@@ -1,4 +1,3 @@
-"use client"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,14 +6,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
-export default function ProfilePicture({ session }) {
+export default function ProfilePicture({ image }) {
   return (
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div size="icon" className="rounded-full">
             <img
-              src={session?.image || "/img/default-avatar.png"}
+              src={image || "/img/default-avatar.png"}
               className="inline-block size-10 rounded-full"
             />
           </div>

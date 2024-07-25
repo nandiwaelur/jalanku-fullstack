@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 export default async function Profile({ searchParams }) {
   const sessions = await auth();
   const session = sessions?.user;
-  if (!session) {
+  if (!session?.id) {
     redirect("/")
   }
   const page = parseInt(searchParams.page) || 1;
@@ -32,14 +32,13 @@ export default async function Profile({ searchParams }) {
     <>
       <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top relative">
         <div className="flex justify-center bg-white dark:bg-[#2F3645] bg-cover bg-center">
-          <NavigationBar />
+        <NavigationBar session={session?.id} image={session?.image} />
         </div>
         <div className="w-full h-full mb-5">
           <div className="flex md:flex-col flex-col-reverse mt-5 mb-5 lg:flex-row justify-center">
-            <UserProfiles session={session} />
+            <UserProfiles image={session.image} username={session.name}/>
             <SavedRecommendations
               recommendations={recommendations}
-              session={session}
               page={page}
               pageSize={pageSize}
               totalPages={totalPages}

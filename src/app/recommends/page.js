@@ -6,14 +6,14 @@ import GetRecommends from "@/components/Recommends/GetRecommends";
 export default async function Recommend() {
   const sessions = await auth();
   const session = sessions?.user;
-  if (!session) {
-    redirect('/');
+  if (!session.id) {
+    redirect("/")
   }
   return (
     <>
     <div className="bg-white dark:bg-[#2F3645] bg-cover bg-top">
         <div className="flex justify-center bg-white dark:bg-[#2F3645] ">
-          <NavigationBar  />
+        <NavigationBar session={session?.id} image={session?.image} />
         </div>
         <div className="w-full h-screen flex justify-center  bg-white dark:bg-[#2F3645] lg:bg-transparent dark:lg:bg-transparent ">
           <GetRecommends session={session}/>

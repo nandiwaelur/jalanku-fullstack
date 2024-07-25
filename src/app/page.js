@@ -2,14 +2,17 @@ import NavigationBar from "@/components/Navigation/NavigationBar";
 import Footer from "@/components/Footer";
 import FeatureJalanku from "@/components/LandingPage/FeatureJalanku";
 import VacationList from "@/components/LandingPage/VacationList";
-export default function page() {
+import { auth } from "@/libs/auth";
+export default async function page() {
+  const sessions = await auth();
+  const session = sessions?.user;
   return (
     <>
     <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32 -mb-32">
     <div className="absolute top-0 h-full w-full bg-[url('/img/bg-image.jpg')] bg-cover bg-top">
         <div className="bg-gradient-to-b from-[#2F3645]/40 to-transparent bg-cover bg-center">
           <div className="flex justify-center ">
-            <NavigationBar  />
+            <NavigationBar session={session?.id} image={session?.image} />
           </div>
           <div className="relative flex h-[70vh] content-center items-center justify-center ">
             <div className="absolute top-0 h-96 w-full" />

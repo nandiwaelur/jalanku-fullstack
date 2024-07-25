@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import LoginButton from "@/components/Navigation/LoginButton";
-export default function DropDown({ session }) {
+export default function DropDown({ session ,image}) {
   return (
     <>
       <div className="sm:hidden">
@@ -25,7 +25,7 @@ export default function DropDown({ session }) {
               <div size="icon" className="rounded-full">
                 <Link href="/profile">
                   <img
-                    src={session?.image || "/img/default-avatar.png"}
+                    src={image || "/img/default-avatar.png"}
                     className="inline-block size-10 rounded-full"
                   />
                 </Link>

@@ -4,11 +4,11 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-} from "@/components/shadcn/ui/sheet";
-import { Button } from "@/components/shadcn/ui/button";
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import LoginButton from "./LoginButton";
+import LoginButton from "@/components/Navigation/LoginButton";
 export default function DropDown({ session }) {
   return (
     <>
@@ -25,7 +25,7 @@ export default function DropDown({ session }) {
               <div size="icon" className="rounded-full">
                 <Link href="/profile">
                   <img
-                    src={session?.user?.image || "/img/default-avatar.png"}
+                    src={session?.image || "/img/default-avatar.png"}
                     className="inline-block size-10 rounded-full"
                   />
                 </Link>

@@ -1,6 +1,6 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
-import { Toaster } from "@/components/shadcn/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
 export const metadata = {
   title: "Jalanku",
   description:

@@ -4,7 +4,8 @@ import { auth } from "@/libs/auth";
 import { redirect } from "next/navigation";
 import GetRecommends from "@/components/Recommends/GetRecommends";
 export default async function Recommend() {
-  const session = await auth();
+  const sessions = await auth();
+  const session = sessions?.user;
   if (!session) {
     redirect('/');
   }

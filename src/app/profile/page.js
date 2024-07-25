@@ -6,23 +6,24 @@ import { auth } from "@/libs/auth";
 import prisma from "@/libs/db";
 import { redirect } from "next/navigation";
 export default async function Profile({ searchParams }) {
-  const session = await auth();
+  const sessions = await auth();
+  const session = sessions?.user;
   if (!session) {
-    redirect("/");
+    redirect("/")
   }
   const page = parseInt(searchParams.page) || 1;
   const pageSize = parseInt(searchParams.pageSize) || 3;
   const [recommendations, totalRecommendations] = await Promise.all([
     prisma.recommendationData.findMany({
       where: {
-        userID: session?.user.id,
+        userID: session?.id,
       },
       skip: (page - 1) * pageSize,
       take: pageSize,
     }),
     prisma.recommendationData.count({
       where: {
-        userID: session?.user.id,
+        userID: session?.id,
       },
     }),
   ]);

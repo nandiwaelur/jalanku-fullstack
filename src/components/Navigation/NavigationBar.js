@@ -1,10 +1,11 @@
 import Link from "next/link";
 import ProfilePicture from "@/components/Navigation/ProfilePicture";
 import LoginButton from "@/components/Navigation/LoginButton";
-import DropDown from "./DropDown";
+import DropDown from "@/components/Navigation/DropDown";
 import { auth } from "@/libs/auth";
 export default async function NavigationBar() {
-  const session = await auth();
+  const sessions = await auth();
+  const session = sessions?.user;
   return (
     <>
       <header className="relative bg-transparent flex flex-wrap sm:justify-start sm:flex-nowrap w-full text-sm py-4 ">
@@ -16,7 +17,7 @@ export default async function NavigationBar() {
             <div variant="secondary" size="icon" className="rounded-full">
               <Link href="/profile">
                 <img
-                  src={session?.user?.image || "/img/default-avatar.png"}
+                  src={session?.image || "/img/default-avatar.png"}
                   alt="hello"
                   className="lg:hidden inline-block size-10 rounded-full"
                 />

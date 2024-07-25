@@ -1,6 +1,6 @@
 "use client";
 import { X,Info } from "lucide-react";
-import { useToast } from "@/components/shadcn/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { deleteRecommendations } from "@/server/actions";
 import PaginationButton from "@/components/Profiles/PaginationButton";
 import {
@@ -8,12 +8,12 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/shadcn/ui/tooltip";
+} from "@/components/ui/tooltip";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/shadcn/ui/popover";
+} from "@/components/ui/popover";
 export default function SavedRecommendations({
   recommendations,
   page,

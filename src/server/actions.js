@@ -7,7 +7,7 @@ export async function addRecommendation(data) {
     try {
         await prisma.recommendationData.create({
             data: {
-                userID:userID,
+                userID: userID,
                 recommendation_saved: recommendation_saved,
             },
           });

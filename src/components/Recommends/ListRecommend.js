@@ -3,12 +3,12 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/shadcn/ui/tooltip";
+} from "@/components/ui/tooltip";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/shadcn/ui/popover";
+} from "@/components/ui/popover";
 import { Info } from "lucide-react";
 export default function ListRecommend({ dataRekomendasi }) {
   return (

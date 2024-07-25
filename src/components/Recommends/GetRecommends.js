@@ -1,14 +1,14 @@
 "use client";
 import axios from "axios";
 import ListRecommend from "@/components/Recommends/ListRecommend";
-import { useToast } from "@/components/shadcn/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/shadcn/ui/tooltip";
+} from "@/components/ui/tooltip";
 import { Bookmark, Search } from "lucide-react";
 import { addRecommendation } from "@/server/actions";
 addRecommendation
@@ -42,7 +42,7 @@ export default function getRecommends({ session }) {
   };
   const simpanRekomendasi = async (e) => {
     const data = {
-      userID: session.user.id,
+      userID: session.id,
       recommendation_saved: JSON.stringify(dataRekomendasi),
     };
     if (dataRekomendasi.length === 0 || rekomendasi === "") {
